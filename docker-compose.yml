@@ -1,0 +1,42 @@
+version: '3.8'
+networks:
+  global:
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    shm_size: '20g'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: scada_repo
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./init-grafana-user.sql:/docker-entrypoint-initdb.d/init-grafana-user.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - global
+    ports:
+      - "5432:5432"
+    command: ["postgres", "-c", "config_file=/var/lib/postgresql/data/postgresql.conf"]
+
+  # app:
+  #   build: .
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     MIX_ENV: prod
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: pass
+  #     POSTGRES_DB: scada_repo
+  #     DATABASE_URL: "postgres://postgres:pass@db:5432/scada_repo"
+  #   networks:
+  #     - global
+  #   ports:
+  #     - "4020:4020"
+  #   entrypoint: ["/app/entrypoint.sh"]

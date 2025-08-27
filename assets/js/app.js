@@ -1,0 +1,183 @@
+// If you want to use Phoenix channels, run `mix help phx.gen.channel`
+// to get started and then uncomment the line below.
+// import "./user_socket.js"
+
+// You can include dependencies in two ways.
+//
+// The simplest option is to put them in assets/vendor and
+// import them using relative paths:
+//
+//     import "../vendor/some-package.js"
+//
+// Alternatively, you can `npm install some-package --prefix assets` and import
+// them using a path starting with the package name:
+//
+//     import "some-package"
+//
+// If you have dependencies that try to import CSS, esbuild will generate a separate `app.css` file.
+// To load it, simply add a second `<link>` to your `root.html.heex` file.
+
+// Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
+import "phoenix_html"
+// Establish Phoenix Socket and LiveView configuration.
+import {Socket} from "phoenix"
+import {LiveSocket} from "phoenix_live_view"
+import topbar from "../vendor/topbar"
+
+// Carousel enhancement hooks
+const CarouselHooks = {
+  mounted() {
+    this.currentSlide = 0
+    this.autoPlay = true
+    this.autoPlayInterval = null
+    
+    // Start autoplay
+    this.startAutoPlay()
+    
+    // Add keyboard navigation
+    this.handleKeydown = this.handleKeydown.bind(this)
+    document.addEventListener('keydown', this.handleKeydown)
+    
+    // Add touch/swipe support
+    this.touchStartX = 0
+    this.touchEndX = 0
+    this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
+    
+    this.el.addEventListener('touchstart', this.handleTouchStart, { passive: true })
+    this.el.addEventListener('touchend', this.handleTouchEnd, { passive: true })
+    
+    // Pause autoplay on hover
+    this.el.addEventListener('mouseenter', () => this.pauseAutoPlay())
+    this.el.addEventListener('mouseleave', () => this.resumeAutoPlay())
+  },
+  
+  destroyed() {
+    this.stopAutoPlay()
+    document.removeEventListener('keydown', this.handleKeydown)
+    this.el.removeEventListener('touchstart', this.handleTouchStart)
+    this.el.removeEventListener('touchend', this.handleTouchEnd)
+  },
+  
+  startAutoPlay() {
+    if (this.autoPlay && !this.autoPlayInterval) {
+      this.autoPlayInterval = setInterval(() => {
+        this.pushEvent('next_slide')
+      }, 5000)
+    }
+  },
+  
+  stopAutoPlay() {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval)
+      this.autoPlayInterval = null
+    }
+  },
+  
+  pauseAutoPlay() {
+    this.stopAutoPlay()
+  },
+  
+  resumeAutoPlay() {
+    this.startAutoPlay()
+  },
+  
+  handleKeydown(event) {
+    switch(event.key) {
+      case 'ArrowLeft':
+        event.preventDefault()
+        this.pushEvent('prev_slide')
+        break
+      case 'ArrowRight':
+        event.preventDefault()
+        this.pushEvent('next_slide')
+        break
+      case ' ':
+        event.preventDefault()
+        this.pushEvent('toggle_autoplay')
+        break
+    }
+  },
+  
+  handleTouchStart(event) {
+    this.touchStartX = event.changedTouches[0].screenX
+  },
+  
+  handleTouchEnd(event) {
+    this.touchEndX = event.changedTouches[0].screenX
+    this.handleSwipe()
+  },
+  
+  handleSwipe() {
+    const swipeThreshold = 50
+    const diff = this.touchStartX - this.touchEndX
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - next slide
+        this.pushEvent('next_slide')
+      } else {
+        // Swipe right - previous slide
+        this.pushEvent('prev_slide')
+      }
+    }
+  }
+}
+
+const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+const liveSocket = new LiveSocket("/live", Socket, {
+  longPollFallbackMs: 2500,
+  params: {_csrf_token: csrfToken},
+  hooks: {
+    Carousel: CarouselHooks
+  }
+})
+
+// Show progress bar on live navigation and form submits
+topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
+window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
+
+// connect if there are any LiveViews on the page
+liveSocket.connect()
+
+// expose liveSocket on window for web console debug logs and latency simulation:
+// >> liveSocket.enableDebug()
+// >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
+// >> liveSocket.disableLatencySim()
+window.liveSocket = liveSocket
+
+// The lines below enable quality of life phoenix_live_reload
+// development features:
+//
+//     1. stream server logs to the browser console
+//     2. click on elements to jump to their definitions in your code editor
+//
+if (process.env.NODE_ENV === "development") {
+  window.addEventListener("phx:live_reload:attached", ({detail: reloader}) => {
+    // Enable server log streaming to client.
+    // Disable with reloader.disableServerLogs()
+
+    // Open configured PLUG_EDITOR at file:line of the clicked element's HEEx component
+    //
+    //   * click with "c" key pressed to open at caller location
+    //   * click with "d" key pressed to open at function component definition location
+    let keyDown
+    window.addEventListener("keydown", e => keyDown = e.key)
+    window.addEventListener("mouseup", e => keyDown = null)
+    window.addEventListener("click", e => {
+      if(keyDown === "c"){
+        e.preventDefault()
+        e.stopImmediatePropagation()
+        reloader.openEditorAtCaller(e.target)
+      } else if(keyDown === "d"){
+        e.preventDefault()
+        e.stopImmediatePropagation()
+        reloader.openEditorAtDef(e.target)
+      }
+    }, true)
+
+    window.liveReloader = reloader
+  })
+}
+
