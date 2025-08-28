@@ -2,27 +2,4 @@
 set -eu
 
 cd -P -- "$(dirname -- "$0")"
-
-if [ ! -s "$PGDATA/PG_VERSION" ]; then
-  echo ">>> Initializing database cluster at $PGDATA..."
-  echo "pass" > /tmp/db_pass
-  initdb -D "$PGDATA" -U postgres --pwfile=/tmp/db_pass
-  rm /tmp/db_pass
-fi
-
-echo ">>> Starting Postgres..."
-pg_ctl -D "$PGDATA" -o "-c listen_addresses='*'" -w start
-
-echo ">>> Waiting for Postgres to accept connections..."
-until pg_isready -U postgres; do
-  sleep 2
-done
-
-echo ">>> Ensuring database exists..."
-createdb -U postgres scada_repo || true
-
-echo ">>> Running migrations..."
-./bin/peredacha eval "Peredacha.Release.migrate"
-
-echo ">>> Starting Phoenix app..."
-PHX_SERVER=true exec ./bin/peredacha start
+PHX_SERVER=true exec ./peredacha start

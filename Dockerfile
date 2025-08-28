@@ -71,35 +71,20 @@ RUN mix release
 FROM ${RUNNER_IMAGE} AS final
 
 RUN apt-get update \
-  && apt-get install -y --no-install-recommends \
-      libstdc++6 openssl libncurses5 locales ca-certificates \
-      postgresql postgresql-contrib \
+  && apt-get install -y --no-install-recommends libstdc++6 openssl libncurses5 locales ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
-ENV PATH="/usr/lib/postgresql/15/bin:${PATH}"
-
 # Set the locale
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
-  && locale-gen
-
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US:en
-ENV LC_ALL=en_US.UTF-8
-
 WORKDIR "/app"
 RUN chown nobody /app
 
-# Set environment
+# set runner ENV
 ENV MIX_ENV="prod"
-ENV DATABASE_URL="ecto://postgres:pass@localhost/scada_repo"
-ENV PGDATA="/var/lib/postgresql/data"
 
-# Prepare Postgres data dir
-RUN mkdir -p /var/lib/postgresql/data \
-  && chown -R nobody:nogroup /var/lib/postgresql
 
-# Copy release
-COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/peredacha ./ 
+
+# Only copy the final release from the build stage
+COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/peredacha ./
 
 USER nobody
 

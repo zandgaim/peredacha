@@ -9,7 +9,7 @@ defmodule Peredacha.Application do
   def start(_type, _args) do
     children = [
       PeredachaWeb.Telemetry,
-      Peredacha.Repo,
+      # Peredacha.Repo,
       {DNSCluster, query: Application.get_env(:peredacha, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: Peredacha.PubSub},
       # Start a worker by calling: Peredacha.Worker.start_link(arg)
