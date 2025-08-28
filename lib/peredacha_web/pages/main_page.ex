@@ -48,16 +48,16 @@ defmodule PeredachaWeb.Pages.MainPage do
                     class="w-full h-full object-cover"
                     alt="Renault Transmission Repair 1"
                   />
-                                     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 flex items-start justify-center pt-16">
-                     <div class="text-white text-center carousel-content px-6 py-8 bg-black/30 backdrop-blur-[2px] rounded-2xl max-w-4xl mx-4">
-                       <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
-                         Професійний ремонт КПП
-                       </h2>
-                       <p class="text-lg md:text-xl lg:text-2xl drop-shadow-lg max-w-2xl mx-auto">
-                         Досвідчені майстри та гарантія якості на всі види робіт
-                       </p>
-                     </div>
-                   </div>
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 flex items-start justify-center pt-16">
+                    <div class="text-white text-center carousel-content px-6 py-8 bg-black/30 backdrop-blur-[2px] rounded-2xl max-w-4xl mx-4">
+                      <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
+                        Професійний ремонт КПП
+                      </h2>
+                      <p class="text-lg md:text-xl lg:text-2xl drop-shadow-lg max-w-2xl mx-auto">
+                        Досвідчені майстри та гарантія якості на всі види робіт
+                      </p>
+                    </div>
+                  </div>
                 </div>
                 <div
                   id="item2"
@@ -69,16 +69,16 @@ defmodule PeredachaWeb.Pages.MainPage do
                     class="w-full h-full object-cover"
                     alt="Renault Transmission Repair 2"
                   />
-                                     <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 flex items-start justify-center pt-16">
-                     <div class="text-white text-center carousel-content px-6 py-8 bg-black/30 backdrop-blur-[2px] rounded-2xl max-w-4xl mx-4">
-                       <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
-                         Сучасне обладнання
-                       </h2>
-                       <p class="text-lg md:text-xl lg:text-2xl drop-shadow-lg max-w-2xl mx-auto">
-                         Точна діагностика та якісний ремонт з використанням оригінальних запчастин
-                       </p>
-                     </div>
-                   </div>
+                  <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/40 flex items-start justify-center pt-16">
+                    <div class="text-white text-center carousel-content px-6 py-8 bg-black/30 backdrop-blur-[2px] rounded-2xl max-w-4xl mx-4">
+                      <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
+                        Сучасне обладнання
+                      </h2>
+                      <p class="text-lg md:text-xl lg:text-2xl drop-shadow-lg max-w-2xl mx-auto">
+                        Точна діагностика та якісний ремонт з використанням оригінальних запчастин
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
