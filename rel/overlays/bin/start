@@ -5,7 +5,9 @@ cd -P -- "$(dirname -- "$0")"
 
 if [ ! -s "$PGDATA/PG_VERSION" ]; then
   echo ">>> Initializing database cluster at $PGDATA..."
-  initdb -D "$PGDATA" -U postgres --pwfile=<(echo "pass")
+  echo "pass" > /tmp/db_pass
+  initdb -D "$PGDATA" -U postgres --pwfile=/tmp/db_pass
+  rm /tmp/db_pass
 fi
 
 echo ">>> Starting Postgres..."
