@@ -76,6 +76,8 @@ RUN apt-get update \
       postgresql postgresql-contrib \
   && rm -rf /var/lib/apt/lists/*
 
+ENV PATH="/usr/lib/postgresql/15/bin:${PATH}"
+
 # Set the locale
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
   && locale-gen
