@@ -3,6 +3,11 @@ set -eu
 
 cd -P -- "$(dirname -- "$0")"
 
+if [ ! -s "$PGDATA/PG_VERSION" ]; then
+  echo ">>> Initializing database cluster at $PGDATA..."
+  initdb -D "$PGDATA" -U postgres --pwfile=<(echo "pass")
+fi
+
 echo ">>> Starting Postgres..."
 pg_ctl -D "$PGDATA" -o "-c listen_addresses='*'" -w start
 
@@ -18,4 +23,4 @@ echo ">>> Running migrations..."
 ./bin/peredacha eval "Peredacha.Release.migrate"
 
 echo ">>> Starting Phoenix app..."
-PHX_SERVER=true exec ./peredacha start
+PHX_SERVER=true exec ./bin/peredacha start
