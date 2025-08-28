@@ -1,6 +1,8 @@
 defmodule PeredachaWeb.Pages.MainPage do
   use PeredachaWeb, :live_view
 
+  alias PeredachaWeb.Components.Footer
+
   def mount(_params, _session, socket) do
     page_title = "СТО ремонт КПП Renault. Ремонт МКПП Рено | 5peredacha"
 
@@ -10,7 +12,7 @@ defmodule PeredachaWeb.Pages.MainPage do
     canonical_url = "https://5peredacha.com.ua/"
     og_image = "https://5peredacha.com.ua/wp-content/uploads/2023/12/renoo-788x1024.jpg"
 
-    Process.send_after(self(), :auto_advance, 4000)
+    Process.send_after(self(), :auto_advance, 5500)
 
     socket =
       socket
@@ -174,12 +176,7 @@ defmodule PeredachaWeb.Pages.MainPage do
         </section>
       </main>
 
-      <footer class="bg-black text-gray-400 py-8 mt-8">
-        <div class="container mx-auto text-center">
-          <p>&copy; {DateTime.utc_now().year} 5Peredacha. Всі права захищено.</p>
-          <p class="mt-2">СТО по ремонту КПП Renault</p>
-        </div>
-      </footer>
+      <.live_component module={Footer} id="footer" />
     </div>
     """
   end
@@ -189,7 +186,7 @@ defmodule PeredachaWeb.Pages.MainPage do
     new_slide = if current_slide < 1, do: current_slide + 1, else: 0
     socket = assign(socket, :current_slide, new_slide)
 
-    Process.send_after(self(), :auto_advance, 4000)
+    Process.send_after(self(), :auto_advance, 5500)
 
     {:noreply, socket}
   end
