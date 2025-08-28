@@ -99,10 +99,6 @@ RUN mkdir -p /var/lib/postgresql/data \
 # Copy release
 COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/peredacha ./ 
 
-# Copy entrypoint
-COPY entrypoint.sh /app/entrypoint.sh
-RUN chmod +x /app/entrypoint.sh
-
 USER nobody
 
 # If using an environment that doesn't automatically reap zombie processes, it is
