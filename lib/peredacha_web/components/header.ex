@@ -1,6 +1,8 @@
 defmodule PeredachaWeb.Components.Header do
   use PeredachaWeb, :live_component
 
+  alias PeredachaWeb.Components.SocialIcons
+
   def render(assigns) do
     ~H"""
     <header class="bg-gray-900 text-white shadow-lg">
@@ -13,19 +15,8 @@ defmodule PeredachaWeb.Components.Header do
           />
           <span class="text-xl font-bold tracking-wide">5 Передача</span>
         </a>
-        <%!-- <.theme_toggle /> --%>
         <div class="flex items-center gap-8">
-          <div class="text-right">
-            <a href="tel:+380739161842" class="block hover:text-yellow-400 transition">
-              +38 (073) 916 18 42
-            </a>
-            <a href="tel:+380969161842" class="block hover:text-yellow-400 transition">
-              +38 (096) 916 18 42
-            </a>
-          </div>
-          <button class="bg-yellow-500 text-black font-semibold py-2 px-5 rounded-lg shadow hover:bg-yellow-600 transition">
-            Замовити дзвінок
-          </button>
+          <.live_component module={SocialIcons} id="social-icons-header" />
         </div>
       </div>
     </header>
