@@ -24,6 +24,20 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+const HideOnScroll = {
+  mounted() {
+    const arrow = this.el
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        arrow.classList.add("opacity-0", "pointer-events-none")
+      } else {
+        arrow.classList.remove("opacity-0", "pointer-events-none")
+      }
+    })
+  }
+}
+
 // Carousel enhancement hooks
 const CarouselHooks = {
   mounted() {
@@ -129,7 +143,8 @@ const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
   hooks: {
-    Carousel: CarouselHooks
+    Carousel: CarouselHooks,
+    HideOnScroll: HideOnScroll
   }
 })
 
