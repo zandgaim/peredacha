@@ -20,11 +20,10 @@ defmodule PeredachaWeb.Components.Footer do
         <p class="font-bold">
           5 Передача <br /> CТО по ремонту КПП Renault
         </p>
-
+        
         <p>Copyright © {DateTime.utc_now().year}. Всі права захищено.</p>
       </aside>
-
-      <.live_component module={SocialIcons} id="social-icons-footer" />
+       <.live_component module={SocialIcons} id="social-icons-footer" />
     </footer>
     """
   end
