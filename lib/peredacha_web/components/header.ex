@@ -46,13 +46,17 @@ defmodule PeredachaWeb.Components.Header do
                 />
               </svg>
             </div>
+            
             <ul
               tabindex="0"
               class="menu menu-sm dropdown-content bg-gray-800/90 backdrop-blur-sm rounded-xl z-10 mt-3 w-52 p-2 shadow-lg"
             >
               <li><a href="#home">Головна</a></li>
+              
               <li><a href="#portfolio">Послуги</a></li>
+              
               <li><a href="#about">Про нас</a></li>
+              
               <li><a href="#contacts">Контакти</a></li>
             </ul>
           </div>

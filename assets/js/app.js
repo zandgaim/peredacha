@@ -23,129 +23,14 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
+import Hooks from "./hooks"
 
-const HideOnScroll = {
-  mounted() {
-    const arrow = this.el
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        arrow.classList.add("opacity-0", "pointer-events-none")
-      } else {
-        arrow.classList.remove("opacity-0", "pointer-events-none")
-      }
-    })
-  }
-}
-
-// Carousel enhancement hooks
-const CarouselHooks = {
-  mounted() {
-    this.currentSlide = 0
-    this.autoPlay = true
-    this.autoPlayInterval = null
-    
-    // Start autoplay
-    this.startAutoPlay()
-    
-    // Add keyboard navigation
-    this.handleKeydown = this.handleKeydown.bind(this)
-    document.addEventListener('keydown', this.handleKeydown)
-    
-    // Add touch/swipe support
-    this.touchStartX = 0
-    this.touchEndX = 0
-    this.handleTouchStart = this.handleTouchStart.bind(this)
-    this.handleTouchEnd = this.handleTouchEnd.bind(this)
-    
-    this.el.addEventListener('touchstart', this.handleTouchStart, { passive: true })
-    this.el.addEventListener('touchend', this.handleTouchEnd, { passive: true })
-    
-    // Pause autoplay on hover
-    this.el.addEventListener('mouseenter', () => this.pauseAutoPlay())
-    this.el.addEventListener('mouseleave', () => this.resumeAutoPlay())
-  },
-  
-  destroyed() {
-    this.stopAutoPlay()
-    document.removeEventListener('keydown', this.handleKeydown)
-    this.el.removeEventListener('touchstart', this.handleTouchStart)
-    this.el.removeEventListener('touchend', this.handleTouchEnd)
-  },
-  
-  startAutoPlay() {
-    if (this.autoPlay && !this.autoPlayInterval) {
-      this.autoPlayInterval = setInterval(() => {
-        this.pushEvent('next_slide')
-      }, 5000)
-    }
-  },
-  
-  stopAutoPlay() {
-    if (this.autoPlayInterval) {
-      clearInterval(this.autoPlayInterval)
-      this.autoPlayInterval = null
-    }
-  },
-  
-  pauseAutoPlay() {
-    this.stopAutoPlay()
-  },
-  
-  resumeAutoPlay() {
-    this.startAutoPlay()
-  },
-  
-  handleKeydown(event) {
-    switch(event.key) {
-      case 'ArrowLeft':
-        event.preventDefault()
-        this.pushEvent('prev_slide')
-        break
-      case 'ArrowRight':
-        event.preventDefault()
-        this.pushEvent('next_slide')
-        break
-      case ' ':
-        event.preventDefault()
-        this.pushEvent('toggle_autoplay')
-        break
-    }
-  },
-  
-  handleTouchStart(event) {
-    this.touchStartX = event.changedTouches[0].screenX
-  },
-  
-  handleTouchEnd(event) {
-    this.touchEndX = event.changedTouches[0].screenX
-    this.handleSwipe()
-  },
-  
-  handleSwipe() {
-    const swipeThreshold = 50
-    const diff = this.touchStartX - this.touchEndX
-    
-    if (Math.abs(diff) > swipeThreshold) {
-      if (diff > 0) {
-        // Swipe left - next slide
-        this.pushEvent('next_slide')
-      } else {
-        // Swipe right - previous slide
-        this.pushEvent('prev_slide')
-      }
-    }
-  }
-}
 
 const csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   longPollFallbackMs: 2500,
   params: {_csrf_token: csrfToken},
-  hooks: {
-    Carousel: CarouselHooks,
-    HideOnScroll: HideOnScroll
-  }
+  hooks: Hooks
 })
 
 // Show progress bar on live navigation and form submits
