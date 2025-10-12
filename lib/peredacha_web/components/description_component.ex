@@ -1,4 +1,4 @@
-defmodule PeredachaWeb.DescriptionComponent do
+defmodule PeredachaWeb.Components.DescriptionComponent do
   use PeredachaWeb, :live_component
 
   def render(assigns) do

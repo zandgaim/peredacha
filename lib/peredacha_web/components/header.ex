@@ -20,59 +20,67 @@ defmodule PeredachaWeb.Components.Header do
           </span>
         </a>
 
-    <!-- Desktop navigation -->
-        <nav class="hidden md:flex items-center space-x-6 text-lg font-medium min-w-[400px]">
-          <a href="#home" class="hover:text-primary transition-colors">Головна</a>
-          <a href="#portfolio" class="hover:text-primary transition-colors">Послуги</a>
-          <a href="#about" class="hover:text-primary transition-colors">Про нас</a>
-          <div class="dropdown">
-            <div
-              tabindex="0"
-              role="button"
-              class="hover:text-primary focus:text-primary transition-colors cursor-pointer focus:outline-none"
-            >
-              Контакти
-            </div>
-
-            <div
-              tabindex="0"
-              class="dropdown-content bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg w-64 mt-4 p-4 z-[1] text-gray-200"
-            >
-              <div>
-                <h3 class="font-bold text-white mb-2 text-base">СТО</h3>
-
-                <a
-                  href="tel:+380739161842"
-                  class="flex items-center space-x-2 hover:text-primary transition-colors group mb-1"
-                >
-                  <.phone_icon /> <span>+38 (073) 916-18-42</span>
-                </a>
-
-                <a
-                  href="tel:+380969161842"
-                  class="flex items-center space-x-2 hover:text-primary transition-colors group"
-                >
-                  <.phone_icon /> <span>+38 (096) 916-18-42</span>
-                </a>
+        <div class="hidden md:flex items-center gap-5">
+          <!-- Main navigation links -->
+          <nav class="flex items-center space-x-6 text-lg font-medium">
+            <a href="#home" class="hover:text-primary transition-colors">Головна</a>
+            <a href="#portfolio" class="hover:text-primary transition-colors">Послуги</a>
+            <a href="#about" class="hover:text-primary transition-colors">Про нас</a>
+            <div class="dropdown">
+              <div
+                tabindex="0"
+                role="button"
+                class="hover:text-primary focus:text-primary transition-colors cursor-pointer focus:outline-none"
+              >
+                Контакти
               </div>
-
-              <div class="border-t border-gray-600 my-2"></div>
-
-              <div class="mb-3">
-                <h3 class="font-bold text-white mb-2 text-base">Автомагазин</h3>
-
-                <a
-                  href="tel:+380674161842"
-                  class="flex items-center space-x-2 hover:text-primary transition-colors group"
-                >
-                  <.phone_icon /> <span>+38 (067) 416-18-42</span>
-                </a>
+              <div
+                tabindex="0"
+                class="dropdown-content bg-gray-800/90 backdrop-blur-sm rounded-xl shadow-lg w-64 mt-4 p-4 z-[1] text-gray-200"
+              >
+                <div>
+                  <h3 class="font-bold text-white mb-2 text-base">СТО</h3>
+                  <a
+                    href="tel:+380739161842"
+                    class="flex items-center space-x-2 hover:text-primary transition-colors group mb-1"
+                  >
+                    <.phone_icon /> <span>+38 (073) 916-18-42</span>
+                  </a>
+                  <a
+                    href="tel:+380969161842"
+                    class="flex items-center space-x-2 hover:text-primary transition-colors group"
+                  >
+                    <.phone_icon /> <span>+38 (096) 916-18-42</span>
+                  </a>
+                </div>
+                <div class="border-t border-gray-600 my-2"></div>
+                <div class="mb-3">
+                  <h3 class="font-bold text-white mb-2 text-base">Автомагазин</h3>
+                  <a
+                    href="tel:+380674161842"
+                    class="flex items-center space-x-2 hover:text-primary transition-colors group"
+                  >
+                    <.phone_icon /> <span>+38 (067) 416-18-42</span>
+                  </a>
+                </div>
               </div>
             </div>
+          </nav>
+          
+    <!-- Vertical Separator -->
+          <div class="w-px h-6 bg-white/20"></div>
+          
+    <!-- Theme Controller & Social Icons -->
+          <div class="flex items-center gap-4">
+            <.theme_controller />
+            
+    <!-- Vertical Separator -->
+            <div class="w-px h-6 bg-white/20"></div>
+            <.live_component module={SocialIcons} id="social-icons-header" />
           </div>
-        </nav>
-
-    <!-- Mobile menu -->
+        </div>
+        
+    <!-- Mobile menu (unchanged) -->
         <div class="md:hidden">
           <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -91,49 +99,46 @@ defmodule PeredachaWeb.Components.Header do
                 />
               </svg>
             </div>
-
             <ul
               tabindex="0"
               class="menu menu-sm dropdown-content bg-gray-800/90 backdrop-blur-sm rounded-xl z-10 mt-3 w-60 p-3 shadow-lg text-gray-200"
             >
-              <li class="flex-row items-center justify-between px-3 py-2">
-                <.live_component module={SocialIcons} id="social-icons-mobile" />
-                <.theme_controller />
+              <!-- Social Icons Section -->
+              <li class="flex flex-col items-center py-1">
+                <span class="text-[10px] uppercase tracking-wider text-gray-400 mb-0.5">
+                  Ми в соцмережах
+                </span>
+                <div class="flex gap-2">
+                  <.live_component module={SocialIcons} id="social-icons-mobile" />
+                </div>
               </li>
-
+              
+    <!-- Divider -->
+              <li class="border-t border-gray-600 my-1"></li>
               <li><a href="#home">Головна</a></li>
-
               <li><a href="#portfolio">Послуги</a></li>
-
               <li><a href="#about">Про нас</a></li>
-
               <li tabindex="0">
                 <details>
                   <summary class="cursor-pointerz transition-colors">
                     Контакти
                   </summary>
-
                   <div class="mt-2 ml-2">
                     <h3 class="font-bold text-white mb-1 text-base">СТО</h3>
-
                     <a
                       href="tel:+380739161842"
                       class="flex items-center space-x-2 hover:text-primary transition-colors group mb-1"
                     >
                       <.phone_icon /> <span>+38 (073) 916-18-42</span>
                     </a>
-
                     <a
                       href="tel:+380969161842"
                       class="flex items-center space-x-2 hover:text-primary transition-colors group mb-2"
                     >
                       <.phone_icon /> <span>+38 (096) 916-18-42</span>
                     </a>
-
                     <div class="border-t border-gray-600 my-2"></div>
-
                     <h3 class="font-bold text-white mb-1 text-base">Автомагазин</h3>
-
                     <a
                       href="tel:+380674161842"
                       class="flex items-center space-x-2 hover:text-primary transition-colors group"
@@ -145,11 +150,6 @@ defmodule PeredachaWeb.Components.Header do
               </li>
             </ul>
           </div>
-        </div>
-
-        <div class="hidden md:flex items-center gap-4">
-          <.theme_controller />
-          <.live_component module={SocialIcons} id="social-icons-header" />
         </div>
       </div>
     </header>

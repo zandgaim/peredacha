@@ -3,6 +3,9 @@ defmodule PeredachaWeb.Pages.MainPage do
 
   alias PeredachaWeb.Components.Footer
   alias PeredachaWeb.Components.CarouselComponent
+  alias PeredachaWeb.Components.ServicesComponent
+  alias PeredachaWeb.Components.DescriptionComponent
+  alias PeredachaWeb.Components.Header
 
   def mount(_params, _session, socket) do
     page_title = "СТО ремонт КПП Renault. Ремонт МКПП Рено | 5peredacha"
@@ -31,11 +34,7 @@ defmodule PeredachaWeb.Pages.MainPage do
   def render(assigns) do
     ~H"""
     <div class="relative min-h-screen flex flex-col">
-      <.live_component
-        module={PeredachaWeb.Components.Header}
-        id="header"
-        canonical_url={@canonical_url}
-      />
+      <.live_component module={Header} id="header" canonical_url={@canonical_url} />
       <main class="flex-1">
         <section class="relative w-full h-screen">
           <!-- Slides -->
@@ -46,7 +45,9 @@ defmodule PeredachaWeb.Pages.MainPage do
             current_slide={@current_slide}
           />
         </section>
-         <.live_component module={PeredachaWeb.DescriptionComponent} id="description_component" />
+        <.live_component module={DescriptionComponent} id="description_component" />
+        <.live_component module={ServicesComponent} id="services" />
+
         <section class="py-16 bg-gray-100">
           <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-10 text-gray-800">Моделі КПП які ми ремонтуємо</h2>
@@ -107,13 +108,15 @@ defmodule PeredachaWeb.Pages.MainPage do
               <div class="bg-gray-800 rounded-xl shadow p-8">
                 <h3 class="text-xl font-semibold mb-2 text-yellow-400">Вигідні ціни</h3>
 
-                <p>Пропонуємо конкурентні ціни та прозоре ціноутворення без прихованих платежів.</p>
+                <p>
+                  Пропонуємо конкурентні ціни та прозоре ціноутворення без прихованих платежів.
+                </p>
               </div>
             </div>
           </div>
         </section>
       </main>
-       <.live_component module={Footer} id="footer" />
+      <.live_component module={Footer} id="footer" />
     </div>
     """
   end
