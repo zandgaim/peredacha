@@ -30,7 +30,7 @@ defmodule PeredachaWeb.Pages.MainPage do
 
   def render(assigns) do
     ~H"""
-    <div class="relative min-h-screen flex flex-col bg-gray-50 data-theme=dark">
+    <div class="relative min-h-screen flex flex-col">
       <.live_component
         module={PeredachaWeb.Components.Header}
         id="header"
@@ -50,63 +50,63 @@ defmodule PeredachaWeb.Pages.MainPage do
         <section class="py-16 bg-gray-100">
           <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-10 text-gray-800">Моделі КПП які ми ремонтуємо</h2>
-            
+
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 text-lg">
               <div class="bg-white rounded shadow p-3">JH1</div>
-              
+
               <div class="bg-white rounded shadow p-3">JH3</div>
-              
+
               <div class="bg-white rounded shadow p-3">JR5</div>
-              
+
               <div class="bg-white rounded shadow p-3">JHQ</div>
-              
+
               <div class="bg-white rounded shadow p-3">JB1</div>
-              
+
               <div class="bg-white rounded shadow p-3">JB3</div>
-              
+
               <div class="bg-white rounded shadow p-3">JB5</div>
-              
+
               <div class="bg-white rounded shadow p-3">JC5</div>
-              
+
               <div class="bg-white rounded shadow p-3">JC7</div>
-              
+
               <div class="bg-white rounded shadow p-3">ND0</div>
-              
+
               <div class="bg-white rounded shadow p-3">ND4</div>
-              
+
               <div class="bg-white rounded shadow p-3">PK4</div>
-              
+
               <div class="bg-white rounded shadow p-3">PK5</div>
-              
+
               <div class="bg-white rounded shadow p-3">PK6</div>
-              
+
               <div class="bg-white rounded shadow p-3">PF6</div>
-              
+
               <div class="bg-white rounded shadow p-3">Та інші...</div>
             </div>
           </div>
         </section>
-        
+
         <section class="py-16 bg-gray-900 text-white">
           <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-10">Чому обирають нас?</h2>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
               <div class="bg-gray-800 rounded-xl shadow p-8">
                 <h3 class="text-xl font-semibold mb-2 text-yellow-400">Досвідчені майстри</h3>
-                
+
                 <p>Наша команда має багаторічний досвід у ремонті коробок передач.</p>
               </div>
-              
+
               <div class="bg-gray-800 rounded-xl shadow p-8">
                 <h3 class="text-xl font-semibold mb-2 text-yellow-400">Гарантія якості</h3>
-                
+
                 <p>Надаємо гарантію на всі виконані роботи та замінені деталі.</p>
               </div>
-              
+
               <div class="bg-gray-800 rounded-xl shadow p-8">
                 <h3 class="text-xl font-semibold mb-2 text-yellow-400">Вигідні ціни</h3>
-                
+
                 <p>Пропонуємо конкурентні ціни та прозоре ціноутворення без прихованих платежів.</p>
               </div>
             </div>

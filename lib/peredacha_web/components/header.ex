@@ -6,7 +6,7 @@ defmodule PeredachaWeb.Components.Header do
 
   def render(assigns) do
     ~H"""
-    <header class="absolute top-0 left-0 w-full z-30 bg-neutral/40 backdrop-blur-sm text-white transition-colors duration-300">
+    <header class="fixed top-0 inset-x-0 z-50 bg-transparent backdrop-blur-sm text-white transition-colors duration-300 supports-[backdrop-filter]:bg-neutral/60">
       <div class="flex justify-between items-center py-4 px-4 md:px-6 w-full max-w-full">
         <!-- Logo -->
         <a href={@canonical_url} class="flex items-center space-x-2 group">
