@@ -4,28 +4,35 @@ defmodule PeredachaWeb.Components.ServicesComponent do
   @services [
     %{
       id: 1,
-      icon: :diagnostic,
+      icon: "diagnostic",
       title: "Діагностика та дефектування КПП",
       description:
-        "Проводимо повну діагностику МКПП на спеціалізованому обладнанні, точно виявляючи причини несправностей, такі як шум, вібрація чи утруднене перемикання передач."
+        "Проводимо повну діагностику МКПП на спеціалізованому обладнанні, точно виявляючи причини несправностей."
     },
     %{
       id: 2,
-      icon: :repair,
+      icon: "repair",
       title: "Ремонт МКПП та заміна зчеплення",
       description:
         "Виконуємо якісний ремонт, замінюючи зношені деталі: підшипники, синхронізатори, шестерні. Професійно проводимо заміну комплекту зчеплення."
     },
     %{
       id: 3,
-      icon: :store,
-      title: "Продаж КПП та запчастин",
+      icon: "store",
+      title: "Продаж комплектуючих та аксесуарів Renault",
       description:
         "Пропонуємо асортимент нових та вживаних коробок передач, а також оригінальних запчастин. Допоможемо підібрати найкращий варіант для вашого авто."
     },
     %{
       id: 4,
-      icon: :welding,
+      icon: "oil",
+      title: "Заміна масти в КПП та АКПП",
+      description:
+        "Пропонуємо асортимент нових та вживаних коробок передач, а також оригінальних запчастин. Допоможемо підібрати найкращий варіант для вашого авто."
+    },
+    %{
+      id: 5,
+      icon: "welding",
       title: "Аргонне зварювання",
       description:
         "Відновлюємо пошкоджені корпуси коробок передач за допомогою аргонного зварювання, що дозволяє уникнути дорогої заміни та продовжити термін служби агрегату."
@@ -37,58 +44,78 @@ defmodule PeredachaWeb.Components.ServicesComponent do
     {:ok, assign(socket, assigns) |> assign(:services, @services)}
   end
 
-  @impl true
-  def render(assigns) do
+  # ✅ REFINED: The original photo card, now adapted for a light background.
+  defp service_card(assigns) do
+    assigns = assign_new(assigns, :class, fn -> "" end)
+
     ~H"""
-    <section id="services" class="bg-gray-900 text-white py-16 md:py-24">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
-          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
-            Наші послуги
+    <div class={@class}>
+      <div class="
+        flex h-full flex-col
+        overflow-hidden rounded-2xl
+        border border-base-content/10 bg-base-200
+        shadow-lg transition-all duration-300 ease-in-out
+        hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20
+      ">
+        <div class="flex-shrink-0">
+          <img
+            src={PeredachaWeb.Endpoint.static_path("/images/services/#{@service.icon}.png")}
+            alt={@service.title}
+            class="h-56 w-full object-cover"
+          />
+        </div>
+        <div class="flex flex-grow flex-col justify-between p-6">
+          <div>
+            <h3 class="mb-3 text-xl font-bold text-base-content">
+              {@service.title}
+            </h3>
+            <p class="leading-relaxed text-base-content/70">
+              {@service.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    """
+  end
+
+  @impl true
+def render(assigns) do
+  ~H"""
+  <div class="container mx-auto px-4">
+    <div class="hero min-h-[50vh] bg-base-200 rounded-2xl p-6 sm:p-10">
+      <div class="w-full">
+        <%!-- Заголовок блоку --%>
+        <div class="mx-auto mb-12 max-w-3xl text-center">
+          <h2 class="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+            Наші Послуги
           </h2>
-          <p class="mt-4 mx-auto max-w-3xl text-xl text-gray-400">
-            Професійний підхід до ремонту вашої трансмісії
+          <p class="text-lg text-base-content/80">
+            Ми пропонуємо повний спектр професійних послуг з ремонту та обслуговування механічних коробок передач.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <%!-- Desktop Grid --%>
+        <div class="hidden md:grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <%= for service <- @services do %>
-            <div class="
-              bg-[#1E293B]  /* Custom dark blue/gray background for cards */
-              rounded-xl
-              overflow-hidden
-              shadow-2xl
-              shadow-gray-900/50 /* Darker, more pronounced shadow */
-              border border-transparent
-              hover:border-primary /* Subtle border on hover */
-              transform
-              hover:-translate-y-1 /* Lighter lift effect */
-              transition
-              duration-300
-              ease-in-out
-              flex flex-col /* Make content stretch to full height */
-            ">
-              <div class="flex-shrink-0">
-                <img
-                  src={PeredachaWeb.Endpoint.static_path("/images/service/#{service.icon}.png")}
-                  alt={service.title}
-                  class="w-full h-48 object-cover md:h-56"
-                />
-              </div>
-
-              <div class="p-6 flex-grow flex flex-col justify-between">
-                <h3 class="text-2xl font-semibold mb-3 text-white">
-                  {service.title}
-                </h3>
-                <p class="text-gray-400 text-base leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            </div>
+            <.service_card service={service} />
           <% end %>
         </div>
+
+        <%!-- Mobile Carousel with scroll-snap --%>
+        <div class="md:hidden">
+          <div class="
+            -mx-4 flex snap-x snap-mandatory space-x-6
+            overflow-x-auto px-4 pb-4
+          ">
+            <%= for service <- @services do %>
+              <.service_card service={service} class="w-4/5 flex-shrink-0 snap-center" />
+            <% end %>
+          </div>
+        </div>
       </div>
-    </section>
-    """
-  end
+    </div>
+  </div>
+  """
+end
 end
