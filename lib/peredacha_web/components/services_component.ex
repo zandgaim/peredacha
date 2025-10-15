@@ -80,7 +80,7 @@ defmodule PeredachaWeb.Components.ServicesComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="container mx-auto px-4">
+    <div id="services" class="container scroll-mt-24 mx-auto px-4">
       <div class="relative -mx-4 md:mx-0">
         <div class="hero min-h-[50vh] bg-base-200 rounded-none md:rounded-2xl p-6 sm:p-10">
           <div class="w-full">

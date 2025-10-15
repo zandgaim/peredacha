@@ -39,18 +39,16 @@ defmodule PeredachaWeb.Pages.MainPage do
     <div class="relative min-h-screen flex flex-col">
       <.live_component module={Header} id="header" canonical_url={@canonical_url} />
       <main class="flex-1">
-        <section class="relative w-full h-screen">
-          <.live_component
-            module={CarouselComponent}
-            id="carousel"
-            slides={@slides}
-            current_slide={@current_slide}
-          />
-        </section>
+        <.live_component
+          module={CarouselComponent}
+          id="carousel"
+          slides={@slides}
+          current_slide={@current_slide}
+        />
 
         <.live_component module={DescriptionComponent} id="description_component" steps={@steps_data} />
 
-        <.live_component module={ServicesComponent} id="services" />
+        <.live_component module={ServicesComponent} id="services_component" />
 
         <section class="py-16 bg-base-200">
           <div class="container mx-auto px-4">
