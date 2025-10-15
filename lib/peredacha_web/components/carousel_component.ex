@@ -4,7 +4,7 @@ defmodule PeredachaWeb.Components.CarouselComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id="main-carousel" class="relative w-full h-screen overflow-hidden">
+    <div id="home" class="relative w-full h-screen overflow-hidden">
       <!-- Slides wrapper -->
       <div
         class="flex w-full h-full transition-transform duration-700 ease-in-out"
@@ -22,7 +22,6 @@ defmodule PeredachaWeb.Components.CarouselComponent do
                 <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
                   {slide.title}
                 </h2>
-                
                 <p class="text-lg md:text-xl lg:text-2xl drop-shadow-lg max-w-2xl mx-auto">
                   {slide.subtitle}
                 </p>
@@ -31,7 +30,7 @@ defmodule PeredachaWeb.Components.CarouselComponent do
           </div>
         <% end %>
       </div>
-      
+
     <!-- Scroll Down Arrow -->
       <div
         id="scroll-arrow"
@@ -51,7 +50,7 @@ defmodule PeredachaWeb.Components.CarouselComponent do
           >
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
-           <span class="mt-2 text-lg font-semibold">Далі</span>
+          <span class="mt-2 text-lg font-semibold">Далі</span>
         </a>
       </div>
     </div>

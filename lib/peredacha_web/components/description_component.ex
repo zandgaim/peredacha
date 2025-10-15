@@ -3,7 +3,7 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
 
   def render(assigns) do
     ~H"""
-    <div class="bg-base-100">
+    <div id="about" class="bg-base-100">
       <div class="container mx-auto px-4 py-16 md:py-24 space-y-24">
         <%!-- About Us Section using Hero Component --%>
         <div class="hero min-h-[50vh] bg-base-200 rounded-2xl p-4 sm:p-8">
