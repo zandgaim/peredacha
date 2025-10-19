@@ -48,29 +48,25 @@ defmodule PeredachaWeb.Components.ServicesComponent do
     assigns = assign_new(assigns, :class, fn -> "" end)
 
     ~H"""
-    <div class={@class}>
-      <div class="
-        flex h-full flex-col overflow-hidden rounded-2xl
-        border border-base-content/10 bg-base-200
-        shadow-lg transition-all duration-300 ease-in-out
-        hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20
-      ">
-        <div class="flex-shrink-0">
-          <img
-            src={PeredachaWeb.Endpoint.static_path("/images/services/#{@service.icon}.png")}
-            alt={@service.title}
-            class="h-56 w-full object-cover"
-          />
-        </div>
-        <div class="flex flex-grow flex-col justify-between p-6">
-          <div>
-            <h3 class="mb-3 text-xl font-bold text-base-content">
-              {@service.title}
-            </h3>
-            <p class="leading-relaxed text-base-content/70">
-              {@service.description}
-            </p>
-          </div>
+    <div class={[
+      "flex h-full flex-col overflow-hidden rounded-2xl border border-base-content/10 bg-base-200 shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-primary/20",
+      @class
+    ]}>
+      <div class="flex-shrink-0">
+        <img
+          src={PeredachaWeb.Endpoint.static_path("/images/services/#{@service.icon}.png")}
+          alt={@service.title}
+          class="h-56 w-full object-cover"
+        />
+      </div>
+      <div class="flex flex-grow flex-col justify-between p-6">
+        <div>
+          <h3 class="mb-3 text-xl font-bold text-base-content">
+            {@service.title}
+          </h3>
+          <p class="leading-relaxed text-base-content/70">
+            {@service.description}
+          </p>
         </div>
       </div>
     </div>
@@ -93,23 +89,20 @@ defmodule PeredachaWeb.Components.ServicesComponent do
                 Ми пропонуємо повний спектр професійних послуг з ремонту та обслуговування механічних коробок передач.
               </p>
             </div>
-
-            <!-- Desktop Grid -->
+            
+    <!-- Desktop Grid -->
             <div class="hidden md:grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
               <%= for service <- @services do %>
                 <.service_card service={service} />
               <% end %>
             </div>
-
-            <!-- Mobile Carousel -->
+            
+    <!-- Mobile Carousel -->
             <div class="md:hidden mt-6">
               <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw] flex items-stretch snap-x snap-mandatory gap-5 overflow-x-auto pb-6 px-5 scrollbar-none scroll-smooth">
                 <%= for service <- @services do %>
                   <div class="flex-shrink-0 snap-center basis-[85%] max-w-[85vw] flex">
-                    <.service_card
-                      service={service}
-                      class="flex-1 card bg-base-100 shadow-xl border border-base-300 hover:shadow-2xl transition-all duration-300 ease-in-out"
-                    />
+                    <.service_card service={service} class="flex-1" />
                   </div>
                 <% end %>
               </div>
