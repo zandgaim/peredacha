@@ -11,15 +11,17 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             <img
               src={PeredachaWeb.Endpoint.static_path("/images/steps/step_1.png")}
               class="w-full max-w-md rounded-lg shadow-2xl lg:w-1/2 lg:max-w-none"
-              alt="Ремонт КПП Renault"
+              alt={gettext("Ремонт КПП Renault")}
             />
             <div class="text-center lg:text-left lg:w-1/2">
               <h1 class="text-4xl md:text-5xl font-bold">
-                «5 передача» — експерти з ремонту КПП Renault
+                {gettext("«5 передача» — експерти з ремонту КПП Renault")}
               </h1>
 
               <p class="py-6 text-lg">
-                Ми спеціалізуємося на ремонті механізованих та роботизованих коробок передач для комерційних автомобілів Renault. Забезпечуємо точний підхід, сучасне обладнання та швидке виконання робіт. Більшість ремонтів ми виконуємо менш ніж за половину робочого дня.
+                {gettext(
+                  "Ми спеціалізуємося на ремонті механізованих та роботизованих коробок передач для комерційних автомобілів Renault. Забезпечуємо точний підхід, сучасне обладнання та швидке виконання робіт. Більшість ремонтів ми виконуємо менш ніж за половину робочого дня."
+                )}
               </p>
 
               <div class="space-y-4 max-w-md mx-auto lg:mx-0">
@@ -38,7 +40,11 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  <span><strong>Гарантія 3–6 місяців</strong> на всі роботи та комплектуючі.</span>
+                  <span>
+                    <strong>{gettext("Гарантія 3–6 місяців")}</strong> {gettext(
+                      "на всі роботи та комплектуючі."
+                    )}
+                  </span>
                 </div>
 
                 <div class="flex items-start p-3 bg-base-100/80 rounded-lg">
@@ -56,7 +62,11 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                       d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
                     />
                   </svg>
-                  <span><strong>15+ років досвіду</strong> у щоденному ремонті КПП Renault.</span>
+                  <span>
+                    <strong>{gettext("15+ років досвіду")}</strong> {gettext(
+                      "у щоденному ремонті КПП Renault."
+                    )}
+                  </span>
                 </div>
 
                 <div class="flex items-start p-3 bg-base-100/80 rounded-lg">
@@ -76,8 +86,8 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                   </svg>
 
                   <span>
-                    <strong>Швидке виконання</strong>
-                    — ремонт до одного робочого дня за наявності деталей.
+                    <strong>{gettext("Швидке виконання")}</strong>
+                    {gettext("— ремонт до одного робочого дня за наявності деталей.")}
                   </span>
                 </div>
               </div>
@@ -86,10 +96,12 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
         </div>
         <%!-- How It Works Section using Cards and Steps --%>
         <div class="text-center">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">Як це працює?</h2>
+          <h2 class="text-4xl md:text-5xl font-bold mb-4">{gettext("Як це працює?")}</h2>
 
           <p class="text-lg max-w-2xl mx-auto text-base-content/80">
-            Наш процес простий, прозорий і розроблений, щоб повернути вас на дорогу якомога швидше.
+            {gettext(
+              "Наш процес простий, прозорий і розроблений, щоб повернути вас на дорогу якомога швидше."
+            )}
           </p>
         </div>
         <%!-- On Desktop: Show Cards. On Mobile: Show Steps --%> <%!-- Hide cards on mobile --%>
@@ -98,9 +110,11 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             <div class="card-body items-center">
               <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">1</div>
 
-              <h3 class="card-title text-2xl font-bold">Дзвінок або заявка</h3>
+              <h3 class="card-title text-2xl font-bold">{gettext("Дзвінок або заявка")}</h3>
 
-              <p>Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.</p>
+              <p>
+                {gettext("Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.")}
+              </p>
             </div>
           </div>
 
@@ -108,9 +122,13 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             <div class="card-body items-center">
               <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">2</div>
 
-              <h3 class="card-title text-2xl font-bold">Перевірка та ремонт</h3>
+              <h3 class="card-title text-2xl font-bold">{gettext("Перевірка та ремонт")}</h3>
 
-              <p>Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи.</p>
+              <p>
+                {gettext(
+                  "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
+                )}
+              </p>
             </div>
           </div>
 
@@ -118,10 +136,12 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             <div class="card-body items-center">
               <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">3</div>
 
-              <h3 class="card-title text-2xl font-bold">Тестування та гарантія</h3>
+              <h3 class="card-title text-2xl font-bold">{gettext("Тестування та гарантія")}</h3>
 
               <p>
-                Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані.
+                {gettext(
+                  "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
+                )}
               </p>
             </div>
           </div>
@@ -130,30 +150,34 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
         <ul class="steps steps-vertical md:hidden">
           <li class="step step-primary">
             <div class="text-left p-4">
-              <h3 class="font-bold text-lg">Дзвінок або заявка</h3>
+              <h3 class="font-bold text-lg">{gettext("Дзвінок або заявка")}</h3>
 
               <p class="text-sm text-base-content/70">
-                Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.
+                {gettext("Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.")}
               </p>
             </div>
           </li>
 
           <li class="step step-primary">
             <div class="text-left p-4">
-              <h3 class="font-bold text-lg">Перевірка та ремонт</h3>
+              <h3 class="font-bold text-lg">{gettext("Перевірка та ремонт")}</h3>
 
               <p class="text-sm text-base-content/70">
-                Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи.
+                {gettext(
+                  "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
+                )}
               </p>
             </div>
           </li>
 
           <li class="step">
             <div class="text-left p-4">
-              <h3 class="font-bold text-lg">Тестування та гарантія</h3>
+              <h3 class="font-bold text-lg">{gettext("Тестування та гарантія")}</h3>
 
               <p class="text-sm text-base-content/70">
-                Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані.
+                {gettext(
+                  "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
+                )}
               </p>
             </div>
           </li>

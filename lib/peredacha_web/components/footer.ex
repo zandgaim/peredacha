@@ -18,12 +18,12 @@ defmodule PeredachaWeb.Components.Footer do
           class="inline-block fill-current"
         />
         <p class="font-bold">
-          5 Передача <br /> CТО по ремонту КПП Renault
+          {gettext("5 Передача")} <br /> {gettext("СТО по ремонту КПП Renault")}
         </p>
-        
-        <p>Copyright © {DateTime.utc_now().year}. Всі права захищено.</p>
+
+        <p>{gettext("Copyright © %{year}. Всі права захищено.", year: DateTime.utc_now().year)}</p>
       </aside>
-       <.live_component module={SocialIcons} id="social-icons-footer" />
+      <.live_component module={SocialIcons} id="social-icons-footer" />
     </footer>
     """
   end
