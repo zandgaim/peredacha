@@ -64,5 +64,4 @@ config :phoenix, :json_library, Jason
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
 
-config :peredacha, PeredachaWeb.Gettext,
-  default_locale: "uk"
+config :peredacha, PeredachaWeb.Gettext, default_locale: "uk"

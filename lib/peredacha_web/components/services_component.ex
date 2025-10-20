@@ -1,57 +1,59 @@
 defmodule PeredachaWeb.Components.ServicesComponent do
   use PeredachaWeb, :live_component
 
-  @services [
-    %{
-      id: 1,
-      icon: "diagnostic",
-      title: gettext("Діагностика та дефектування КПП"),
-      description:
-        gettext(
-          "Проводимо повну діагностику МКПП на спеціалізованому обладнанні, точно виявляючи причини несправностей."
-        )
-    },
-    %{
-      id: 2,
-      icon: "repair",
-      title: gettext("Ремонт МКПП та заміна зчеплення"),
-      description:
-        gettext(
-          "Виконуємо якісний ремонт, замінюючи зношені деталі: підшипники, синхронізатори, шестерні. Професійно проводимо заміну комплекту зчеплення."
-        )
-    },
-    %{
-      id: 3,
-      icon: "store",
-      title: gettext("Продаж комплектуючих та аксесуарів Renault"),
-      description:
-        gettext(
-          "Пропонуємо асортимент нових та вживаних коробок передач, а також оригінальних запчастин. Допоможемо підібрати найкращий варіант для вашого авто."
-        )
-    },
-    %{
-      id: 4,
-      icon: "oil",
-      title: gettext("Заміна мастила в КПП та АКПП"),
-      description:
-        gettext(
-          "Виконуємо заміну мастила у коробках передач з дотриманням усіх технічних вимог виробника."
-        )
-    },
-    %{
-      id: 5,
-      icon: "welding",
-      title: gettext("Аргонне зварювання"),
-      description:
-        gettext(
-          "Відновлюємо пошкоджені корпуси коробок передач за допомогою аргонного зварювання, що дозволяє уникнути дорогої заміни."
-        )
-    }
-  ]
+  defp services() do
+    [
+      %{
+        id: 1,
+        icon: "diagnostic",
+        title: gettext("Діагностика та дефектування КПП"),
+        description:
+          gettext(
+            "Проводимо повну діагностику МКПП на спеціалізованому обладнанні, точно виявляючи причини несправностей."
+          )
+      },
+      %{
+        id: 2,
+        icon: "repair",
+        title: gettext("Ремонт МКПП та заміна зчеплення"),
+        description:
+          gettext(
+            "Виконуємо якісний ремонт, замінюючи зношені деталі: підшипники, синхронізатори, шестерні. Професійно проводимо заміну комплекту зчеплення."
+          )
+      },
+      %{
+        id: 3,
+        icon: "store",
+        title: gettext("Продаж комплектуючих та аксесуарів Renault"),
+        description:
+          gettext(
+            "Пропонуємо асортимент нових та вживаних коробок передач, а також оригінальних запчастин. Допоможемо підібрати найкращий варіант для вашого авто."
+          )
+      },
+      %{
+        id: 4,
+        icon: "oil",
+        title: gettext("Заміна мастила в КПП та АКПП"),
+        description:
+          gettext(
+            "Виконуємо заміну мастила у коробках передач з дотриманням усіх технічних вимог виробника."
+          )
+      },
+      %{
+        id: 5,
+        icon: "welding",
+        title: gettext("Аргонне зварювання"),
+        description:
+          gettext(
+            "Відновлюємо пошкоджені корпуси коробок передач за допомогою аргонного зварювання, що дозволяє уникнути дорогої заміни."
+          )
+      }
+    ]
+  end
 
   @impl true
   def update(assigns, socket) do
-    {:ok, assign(socket, assigns) |> assign(:services, @services)}
+    {:ok, assign(socket, assigns) |> assign(:services, services())}
   end
 
   defp service_card(assigns) do
@@ -101,14 +103,14 @@ defmodule PeredachaWeb.Components.ServicesComponent do
                 )}
               </p>
             </div>
-            
+
     <!-- Desktop Grid -->
             <div class="hidden md:grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
               <%= for service <- @services do %>
                 <.service_card service={service} />
               <% end %>
             </div>
-            
+
     <!-- Mobile Carousel -->
             <div class="md:hidden mt-6">
               <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw] flex items-stretch snap-x snap-mandatory gap-5 overflow-x-auto pb-6 px-5 scrollbar-none scroll-smooth">

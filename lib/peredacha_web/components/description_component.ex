@@ -15,7 +15,7 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             />
             <div class="text-center lg:text-left lg:w-1/2">
               <h1 class="text-4xl md:text-5xl font-bold">
-                {gettext("«5 передача» — експерти з ремонту КПП Renault")}
+                {gettext("«5 Передача» — експерти з ремонту КПП Renault")}
               </h1>
 
               <p class="py-6 text-lg">
