@@ -1,0 +1,257 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/peredacha_web/components/core_components.ex:331
+msgid "Actions"
+msgstr "Actions"
+
+#: lib/peredacha_web/components/layouts.ex:77
+msgid "Attempting to reconnect"
+msgstr "Attempting to reconnect"
+
+#: lib/peredacha_web/components/layouts.ex:89
+msgid "Hang in there while we get back on track"
+msgstr "Hang in there while we get back on track"
+
+#: lib/peredacha_web/components/layouts.ex:84
+msgid "Something went wrong!"
+msgstr "Something went wrong!"
+
+#: lib/peredacha_web/components/layouts.ex:72
+msgid "We can't find the internet"
+msgstr "We can't find the internet"
+
+#: lib/peredacha_web/components/core_components.ex:74
+msgid "close"
+msgstr "close"
+
+#: lib/peredacha_web/components/description_component.ex:66
+msgid "15+ років досвіду"
+msgstr "15+ years of experience"
+
+#: lib/peredacha_web/components/description_component.ex:18
+msgid "«5 передача» — експерти з ремонту КПП Renault"
+msgstr "«5th Gear» — Renault gearbox repair experts"
+
+#: lib/peredacha_web/components/description_component.ex:116
+#: lib/peredacha_web/components/description_component.ex:156
+msgid "Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами."
+msgstr "You call us or leave a request on the website, and we get in touch with you."
+
+#: lib/peredacha_web/components/description_component.ex:128
+#: lib/peredacha_web/components/description_component.ex:166
+msgid "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
+msgstr "We assess the gearbox condition, offer repair options, and perform quality work."
+
+#: lib/peredacha_web/components/description_component.ex:44
+msgid "Гарантія 3–6 місяців"
+msgstr "3–6 month warranty"
+
+#: lib/peredacha_web/components/description_component.ex:113
+#: lib/peredacha_web/components/description_component.ex:153
+msgid "Дзвінок або заявка"
+msgstr "Call or Request"
+
+#: lib/peredacha_web/components/description_component.ex:22
+msgid "Ми спеціалізуємося на ремонті механізованих та роботизованих коробок передач для комерційних автомобілів Renault. Забезпечуємо точний підхід, сучасне обладнання та швидке виконання робіт. Більшість ремонтів ми виконуємо менш ніж за половину робочого дня."
+msgstr "We specialize in the repair of manual and robotized gearboxes for Renault commercial vehicles. We ensure precision, modern equipment, and fast turnaround. Most repairs are completed in less than half a working day."
+
+#: lib/peredacha_web/components/description_component.ex:102
+msgid "Наш процес простий, прозорий і розроблений, щоб повернути вас на дорогу якомога швидше."
+msgstr "Our process is simple, transparent, and designed to get you back on the road as quickly as possible."
+
+#: lib/peredacha_web/components/description_component.ex:125
+#: lib/peredacha_web/components/description_component.ex:163
+msgid "Перевірка та ремонт"
+msgstr "Inspection and Repair"
+
+#: lib/peredacha_web/components/description_component.ex:142
+#: lib/peredacha_web/components/description_component.ex:178
+msgid "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
+msgstr "After repair, the gearbox undergoes a final inspection and you receive your vehicle in working condition."
+
+#: lib/peredacha_web/components/description_component.ex:139
+#: lib/peredacha_web/components/description_component.ex:175
+msgid "Тестування та гарантія"
+msgstr "Testing and Warranty"
+
+#: lib/peredacha_web/components/description_component.ex:89
+msgid "Швидке виконання"
+msgstr "Fast turnaround"
+
+#: lib/peredacha_web/components/description_component.ex:99
+msgid "Як це працює?"
+msgstr "How it works?"
+
+#: lib/peredacha_web/components/description_component.ex:44
+msgid "на всі роботи та комплектуючі."
+msgstr "for all work and components."
+
+#: lib/peredacha_web/components/description_component.ex:66
+msgid "у щоденному ремонті КПП Renault."
+msgstr "in daily Renault gearbox repairs."
+
+#: lib/peredacha_web/components/description_component.ex:90
+msgid "— ремонт до одного робочого дня за наявності деталей."
+msgstr "— repair within one working day if parts are available."
+
+#: lib/peredacha_web/components/footer.ex:21
+#: lib/peredacha_web/components/header.ex:19
+msgid "5 Передача"
+msgstr "5th Gear"
+
+#: lib/peredacha_web/pages/main_page.ex:14
+msgid "5 Передача - надійний ремонт коробок передач ➔ Ремонт МКПП Renault ⭐ СТО ремонт КПП Рено ✅ Майстри з індивідуальним підходом ✅ Вигідні ціни ☎ +38 (073) 916 1842"
+msgstr "5th Gear - reliable gearbox repair ➔ Renault manual gearbox repair ⭐ Service station for Renault transmissions ✅ Skilled technicians with a personal approach ✅ Great prices ☎ +38 (073) 916 1842"
+
+#: lib/peredacha_web/components/footer.ex:24
+msgid "Copyright © %{year}. Всі права захищено."
+msgstr "Copyright © %{year}. All rights reserved."
+
+#: lib/peredacha_web/components/header.ex:58
+#: lib/peredacha_web/components/header.ex:147
+msgid "Автомагазин"
+msgstr "Auto Shop"
+
+#: lib/peredacha_web/components/services_component.ex:44
+msgid "Аргонне зварювання"
+msgstr "Argon welding"
+
+#: lib/peredacha_web/pages/main_page.ex:230
+msgid "Вигідні ціни"
+msgstr "Competitive prices"
+
+#: lib/peredacha_web/components/services_component.ex:37
+msgid "Виконуємо заміну мастила у коробках передач з дотриманням усіх технічних вимог виробника."
+msgstr "We change gearbox oil in full compliance with the manufacturer’s technical requirements."
+
+#: lib/peredacha_web/components/services_component.ex:19
+msgid "Виконуємо якісний ремонт, замінюючи зношені деталі: підшипники, синхронізатори, шестерні. Професійно проводимо заміну комплекту зчеплення."
+msgstr "We perform quality repairs by replacing worn parts such as bearings, synchronizers, and gears. We professionally replace clutch kits."
+
+#: lib/peredacha_web/components/services_component.ex:46
+msgid "Відновлюємо пошкоджені корпуси коробок передач за допомогою аргонного зварювання, що дозволяє уникнути дорогої заміни."
+msgstr "We restore damaged gearbox housings using argon welding, avoiding costly replacements."
+
+#: lib/peredacha_web/pages/main_page.ex:226
+msgid "Гарантія якості"
+msgstr "Quality guarantee"
+
+#: lib/peredacha_web/components/header.ex:26
+#: lib/peredacha_web/components/header.ex:119
+msgid "Головна"
+msgstr "Home"
+
+#: lib/peredacha_web/pages/main_page.ex:222
+msgid "Досвідчені майстри"
+msgstr "Experienced technicians"
+
+#: lib/peredacha_web/components/services_component.ex:8
+msgid "Діагностика та дефектування КПП"
+msgstr "Gearbox diagnostics and defect detection"
+
+#: lib/peredacha_web/pages/main_page.ex:114
+msgid "Завітайте до нашого сервісу — зручно розташовані у Дрогобичі"
+msgstr "Visit our service — conveniently located in Drohobych"
+
+#: lib/peredacha_web/components/services_component.ex:35
+msgid "Заміна мастила в КПП та АКПП"
+msgstr "Manual and automatic gearbox oil replacement"
+
+#: lib/peredacha_web/components/header.ex:35
+#: lib/peredacha_web/components/header.ex:128
+msgid "Контакти"
+msgstr "Contacts"
+
+#: lib/peredacha_web/components/header.ex:109
+msgid "Ми в соцмережах"
+msgstr "We are on social media"
+
+#: lib/peredacha_web/pages/main_page.ex:112
+msgid "Ми на карті"
+msgstr "We are on the map"
+
+#: lib/peredacha_web/components/services_component.ex:99
+msgid "Ми пропонуємо повний спектр професійних послуг з ремонту та обслуговування механічних коробок передач."
+msgstr "We offer a full range of professional services for gearbox repair and maintenance."
+
+#: lib/peredacha_web/pages/main_page.ex:58
+msgid "Моделі КПП які ми ремонтуємо"
+msgstr "Gearbox models we repair"
+
+#: lib/peredacha_web/pages/main_page.ex:227
+msgid "Надаємо гарантію на всі виконані роботи та замінені деталі."
+msgstr "We provide a warranty on all work performed and parts replaced."
+
+#: lib/peredacha_web/pages/main_page.ex:223
+msgid "Наша команда має багаторічний досвід у ремонті коробок передач."
+msgstr "Our team has many years of experience in gearbox repair."
+
+#: lib/peredacha_web/components/services_component.ex:96
+msgid "Наші Послуги"
+msgstr "Our Services"
+
+#: lib/peredacha_web/components/header.ex:28
+#: lib/peredacha_web/components/header.ex:123
+msgid "Послуги"
+msgstr "Services"
+
+#: lib/peredacha_web/components/header.ex:27
+#: lib/peredacha_web/components/header.ex:121
+msgid "Про нас"
+msgstr "About us"
+
+#: lib/peredacha_web/components/services_component.ex:10
+msgid "Проводимо повну діагностику МКПП на спеціалізованому обладнанні, точно виявляючи причини несправностей."
+msgstr "We perform complete gearbox diagnostics using specialized equipment to accurately identify issues."
+
+#: lib/peredacha_web/components/services_component.ex:26
+msgid "Продаж комплектуючих та аксесуарів Renault"
+msgstr "Sale of Renault parts and accessories"
+
+#: lib/peredacha_web/components/services_component.ex:28
+msgid "Пропонуємо асортимент нових та вживаних коробок передач, а також оригінальних запчастин. Допоможемо підібрати найкращий варіант для вашого авто."
+msgstr "We offer a range of new and used gearboxes as well as genuine parts. We’ll help you choose the best option for your car."
+
+#: lib/peredacha_web/pages/main_page.ex:232
+msgid "Пропонуємо конкурентні ціни та прозоре ціноутворення без прихованих платежів."
+msgstr "We offer competitive prices and transparent pricing with no hidden fees."
+
+#: lib/peredacha_web/components/description_component.ex:14
+msgid "Ремонт КПП Renault"
+msgstr "Renault gearbox repair"
+
+#: lib/peredacha_web/components/services_component.ex:17
+msgid "Ремонт МКПП та заміна зчеплення"
+msgstr "Manual gearbox repair and clutch replacement"
+
+#: lib/peredacha_web/components/header.ex:42
+#: lib/peredacha_web/components/header.ex:132
+msgid "СТО"
+msgstr "Service Station"
+
+#: lib/peredacha_web/components/footer.ex:21
+msgid "СТО по ремонту КПП Renault"
+msgstr "Renault gearbox repair service station"
+
+#: lib/peredacha_web/pages/main_page.ex:11
+msgid "СТО ремонт КПП Renault. Ремонт МКПП Рено | 5peredacha"
+msgstr "Service station for Renault gearbox repair. Manual gearbox repair | 5peredacha"
+
+#: lib/peredacha_web/pages/main_page.ex:215
+msgid "Та інші..."
+msgstr "And others..."
+
+#: lib/peredacha_web/pages/main_page.ex:83
+msgid "Чому обирають нас?"
+msgstr "Why choose us?"

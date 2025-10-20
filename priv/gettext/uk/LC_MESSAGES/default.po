@@ -1,0 +1,315 @@
+## "msgid"s in this file come from POT (.pot) files.
+###
+### Do not add, change, or remove "msgid"s manually here as
+### they're tied to the ones in the corresponding POT file
+### (with the same domain).
+###
+### Use "mix gettext.extract --merge" or "mix gettext.merge"
+### to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100 != 11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10||n%100>=20) ? 1 : 2);\n"
+
+#: lib/peredacha_web/components/core_components.ex:331
+#, elixir-autogen, elixir-format
+msgid "Actions"
+msgstr ""
+
+#: lib/peredacha_web/components/layouts.ex:77
+#, elixir-autogen, elixir-format
+msgid "Attempting to reconnect"
+msgstr ""
+
+#: lib/peredacha_web/components/layouts.ex:89
+#, elixir-autogen, elixir-format
+msgid "Hang in there while we get back on track"
+msgstr ""
+
+#: lib/peredacha_web/components/layouts.ex:84
+#, elixir-autogen, elixir-format
+msgid "Something went wrong!"
+msgstr ""
+
+#: lib/peredacha_web/components/layouts.ex:72
+#, elixir-autogen, elixir-format
+msgid "We can't find the internet"
+msgstr ""
+
+#: lib/peredacha_web/components/core_components.ex:74
+#, elixir-autogen, elixir-format
+msgid "close"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:66
+#, elixir-autogen, elixir-format
+msgid "15+ років досвіду"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:18
+#, elixir-autogen, elixir-format, fuzzy
+msgid "«5 передача» — експерти з ремонту КПП Renault"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:116
+#: lib/peredacha_web/components/description_component.ex:156
+#, elixir-autogen, elixir-format
+msgid "Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:128
+#: lib/peredacha_web/components/description_component.ex:166
+#, elixir-autogen, elixir-format
+msgid "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:44
+#, elixir-autogen, elixir-format
+msgid "Гарантія 3–6 місяців"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:113
+#: lib/peredacha_web/components/description_component.ex:153
+#, elixir-autogen, elixir-format
+msgid "Дзвінок або заявка"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:22
+#, elixir-autogen, elixir-format
+msgid "Ми спеціалізуємося на ремонті механізованих та роботизованих коробок передач для комерційних автомобілів Renault. Забезпечуємо точний підхід, сучасне обладнання та швидке виконання робіт. Більшість ремонтів ми виконуємо менш ніж за половину робочого дня."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:102
+#, elixir-autogen, elixir-format
+msgid "Наш процес простий, прозорий і розроблений, щоб повернути вас на дорогу якомога швидше."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:125
+#: lib/peredacha_web/components/description_component.ex:163
+#, elixir-autogen, elixir-format
+msgid "Перевірка та ремонт"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:142
+#: lib/peredacha_web/components/description_component.ex:178
+#, elixir-autogen, elixir-format
+msgid "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:139
+#: lib/peredacha_web/components/description_component.ex:175
+#, elixir-autogen, elixir-format
+msgid "Тестування та гарантія"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:89
+#, elixir-autogen, elixir-format
+msgid "Швидке виконання"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:99
+#, elixir-autogen, elixir-format
+msgid "Як це працює?"
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:44
+#, elixir-autogen, elixir-format
+msgid "на всі роботи та комплектуючі."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:66
+#, elixir-autogen, elixir-format
+msgid "у щоденному ремонті КПП Renault."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:90
+#, elixir-autogen, elixir-format
+msgid "— ремонт до одного робочого дня за наявності деталей."
+msgstr ""
+
+#: lib/peredacha_web/components/footer.ex:21
+#: lib/peredacha_web/components/header.ex:19
+#, elixir-autogen, elixir-format
+msgid "5 Передача"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:14
+#, elixir-autogen, elixir-format
+msgid "5 Передача - надійний ремонт коробок передач ➔ Ремонт МКПП Renault ⭐ СТО ремонт КПП Рено ✅ Майстри з індивідуальним підходом ✅ Вигідні ціни ☎ +38 (073) 916 1842"
+msgstr ""
+
+#: lib/peredacha_web/components/footer.ex:24
+#, elixir-autogen, elixir-format
+msgid "Copyright © %{year}. Всі права захищено."
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:58
+#: lib/peredacha_web/components/header.ex:147
+#, elixir-autogen, elixir-format
+msgid "Автомагазин"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:44
+#, elixir-autogen, elixir-format
+msgid "Аргонне зварювання"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:230
+#, elixir-autogen, elixir-format
+msgid "Вигідні ціни"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:37
+#, elixir-autogen, elixir-format
+msgid "Виконуємо заміну мастила у коробках передач з дотриманням усіх технічних вимог виробника."
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:19
+#, elixir-autogen, elixir-format
+msgid "Виконуємо якісний ремонт, замінюючи зношені деталі: підшипники, синхронізатори, шестерні. Професійно проводимо заміну комплекту зчеплення."
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:46
+#, elixir-autogen, elixir-format
+msgid "Відновлюємо пошкоджені корпуси коробок передач за допомогою аргонного зварювання, що дозволяє уникнути дорогої заміни."
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:226
+#, elixir-autogen, elixir-format
+msgid "Гарантія якості"
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:26
+#: lib/peredacha_web/components/header.ex:119
+#, elixir-autogen, elixir-format
+msgid "Головна"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:222
+#, elixir-autogen, elixir-format
+msgid "Досвідчені майстри"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:8
+#, elixir-autogen, elixir-format
+msgid "Діагностика та дефектування КПП"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:114
+#, elixir-autogen, elixir-format
+msgid "Завітайте до нашого сервісу — зручно розташовані у Дрогобичі"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:35
+#, elixir-autogen, elixir-format
+msgid "Заміна мастила в КПП та АКПП"
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:35
+#: lib/peredacha_web/components/header.ex:128
+#, elixir-autogen, elixir-format
+msgid "Контакти"
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:109
+#, elixir-autogen, elixir-format
+msgid "Ми в соцмережах"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:112
+#, elixir-autogen, elixir-format
+msgid "Ми на карті"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:99
+#, elixir-autogen, elixir-format
+msgid "Ми пропонуємо повний спектр професійних послуг з ремонту та обслуговування механічних коробок передач."
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:58
+#, elixir-autogen, elixir-format
+msgid "Моделі КПП які ми ремонтуємо"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:227
+#, elixir-autogen, elixir-format
+msgid "Надаємо гарантію на всі виконані роботи та замінені деталі."
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:223
+#, elixir-autogen, elixir-format
+msgid "Наша команда має багаторічний досвід у ремонті коробок передач."
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:96
+#, elixir-autogen, elixir-format
+msgid "Наші Послуги"
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:28
+#: lib/peredacha_web/components/header.ex:123
+#, elixir-autogen, elixir-format
+msgid "Послуги"
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:27
+#: lib/peredacha_web/components/header.ex:121
+#, elixir-autogen, elixir-format
+msgid "Про нас"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:10
+#, elixir-autogen, elixir-format
+msgid "Проводимо повну діагностику МКПП на спеціалізованому обладнанні, точно виявляючи причини несправностей."
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:26
+#, elixir-autogen, elixir-format
+msgid "Продаж комплектуючих та аксесуарів Renault"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:28
+#, elixir-autogen, elixir-format
+msgid "Пропонуємо асортимент нових та вживаних коробок передач, а також оригінальних запчастин. Допоможемо підібрати найкращий варіант для вашого авто."
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:232
+#, elixir-autogen, elixir-format
+msgid "Пропонуємо конкурентні ціни та прозоре ціноутворення без прихованих платежів."
+msgstr ""
+
+#: lib/peredacha_web/components/description_component.ex:14
+#, elixir-autogen, elixir-format
+msgid "Ремонт КПП Renault"
+msgstr ""
+
+#: lib/peredacha_web/components/services_component.ex:17
+#, elixir-autogen, elixir-format
+msgid "Ремонт МКПП та заміна зчеплення"
+msgstr ""
+
+#: lib/peredacha_web/components/header.ex:42
+#: lib/peredacha_web/components/header.ex:132
+#, elixir-autogen, elixir-format
+msgid "СТО"
+msgstr ""
+
+#: lib/peredacha_web/components/footer.ex:21
+#, elixir-autogen, elixir-format
+msgid "СТО по ремонту КПП Renault"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:11
+#, elixir-autogen, elixir-format
+msgid "СТО ремонт КПП Renault. Ремонт МКПП Рено | 5peredacha"
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:215
+#, elixir-autogen, elixir-format
+msgid "Та інші..."
+msgstr ""
+
+#: lib/peredacha_web/pages/main_page.ex:83
+#, elixir-autogen, elixir-format
+msgid "Чому обирають нас?"
+msgstr ""

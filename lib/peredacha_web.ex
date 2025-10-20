@@ -17,6 +17,8 @@ defmodule PeredachaWeb do
   those modules here.
   """
 
+  import Phoenix.LiveView, only: [assign: 3, put_session: 3]
+
   def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
 
   def router do
@@ -52,6 +54,7 @@ defmodule PeredachaWeb do
     quote do
       use Phoenix.LiveView
 
+      on_mount {PeredachaWeb, :set_locale}
       unquote(html_helpers())
     end
   end
@@ -84,7 +87,6 @@ defmodule PeredachaWeb do
 
       # HTML escaping functionality
       import Phoenix.HTML
-      # Core UI components
       import PeredachaWeb.CoreComponents
 
       # Common modules used in templates
@@ -103,6 +105,14 @@ defmodule PeredachaWeb do
         router: PeredachaWeb.Router,
         statics: PeredachaWeb.static_paths()
     end
+  end
+
+  def on_mount(:set_locale, params, session, socket) do
+    locale = Map.get(params, "lang") || Map.get(session, "locale") || "uk"
+
+    Gettext.put_locale(PeredachaWeb.Gettext, locale)
+
+    {:cont, Phoenix.Component.assign(socket, :current_locale, locale)}
   end
 
   @doc """
