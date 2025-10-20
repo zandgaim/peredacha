@@ -148,7 +148,7 @@ defmodule PeredachaWeb.Pages.MainPage do
   def handle_event("close_video", _, socket), do: {:noreply, assign(socket, :show_video, false)}
 
   def handle_event("set_locale", %{"locale" => locale}, socket) do
-    {:noreply, push_navigate(socket, to: "/?lang=#{locale}")}
+    {:noreply, redirect(socket, to: ~p"/?lang=#{locale}")}
   end
 
   def handle_info(:auto_advance, socket) do

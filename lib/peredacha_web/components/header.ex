@@ -164,17 +164,33 @@ defmodule PeredachaWeb.Components.Header do
   defp lang_switcher(assigns) do
     ~H"""
     <div class="flex items-center gap-2 font-medium text-sm">
-      <a href="/?lang=uk"
-         class={["hover:text-primary transition-colors", @locale == "uk" && "text-primary font-bold", @locale != "uk" && "opacity-70"]}
+      <button
+        phx-click="set_locale"
+        phx-value-locale="uk"
+        class={[
+          "hover:text-primary transition-colors",
+          @locale == "uk" && "text-primary font-bold",
+          @locale != "uk" && "opacity-70"
+        ]}
+        aria-label="Switch to Ukrainian"
+        disabled={@locale == "uk"}
       >
         UA
-      </a>
+      </button>
       <span class="text-white/30">|</span>
-      <a href="/?lang=en"
-         class={["hover:text-primary transition-colors", @locale == "en" && "text-primary font-bold", @locale != "en" && "opacity-70"]}
+      <button
+        phx-click="set_locale"
+        phx-value-locale="en"
+        class={[
+          "hover:text-primary transition-colors",
+          @locale == "en" && "text-primary font-bold",
+          @locale != "en" && "opacity-70"
+        ]}
+        aria-label="Switch to English"
+        disabled={@locale == "en"}
       >
         EN
-      </a>
+      </button>
     </div>
     """
   end
