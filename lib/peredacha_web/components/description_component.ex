@@ -86,8 +86,9 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                   </svg>
 
                   <span>
-                    <strong>{gettext("Швидке виконання")}</strong>
-                    {gettext("— ремонт до одного робочого дня за наявності деталей.")}
+                    <strong>{gettext("Швидке виконання")}</strong> {gettext(
+                      "— ремонт до одного робочого дня за наявності деталей."
+                    )}
                   </span>
                 </div>
               </div>

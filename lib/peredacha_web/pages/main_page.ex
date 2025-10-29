@@ -15,8 +15,6 @@ defmodule PeredachaWeb.Pages.MainPage do
         "5 Передача - надійний ремонт коробок передач ➔ Ремонт МКПП Renault ⭐ СТО ремонт КПП Рено ✅ Майстри з індивідуальним підходом ✅ Вигідні ціни ☎ +38 (073) 916 1842"
       )
 
-    canonical_url = "https://5peredacha.com.ua/"
-    og_image = "https://5peredacha.com.ua/wp-content/uploads/2023/12/renoo-788x1024.jpg"
     locale = session["locale"] || "uk"
     Gettext.put_locale(PeredachaWeb.Gettext, locale)
 
@@ -26,8 +24,6 @@ defmodule PeredachaWeb.Pages.MainPage do
       socket
       |> assign(:page_title, page_title)
       |> assign(:meta_description, meta_description)
-      |> assign(:canonical_url, canonical_url)
-      |> assign(:og_image, og_image)
       |> assign(:slides, get_slides())
       |> assign(:steps_data, get_steps_data())
       |> assign(:kpp_models, get_kpp_models())
@@ -42,12 +38,7 @@ defmodule PeredachaWeb.Pages.MainPage do
   def render(assigns) do
     ~H"""
     <div class="relative min-h-screen flex flex-col">
-      <.live_component
-        module={Header}
-        id="header"
-        canonical_url={@canonical_url}
-        current_locale={@current_locale}
-      />
+      <.live_component module={Header} id="header" current_locale={@current_locale} />
       <main class="flex-1">
         <.live_component
           module={CarouselComponent}
@@ -143,9 +134,6 @@ defmodule PeredachaWeb.Pages.MainPage do
     </div>
     """
   end
-
-  def handle_event("open_video", _, socket), do: {:noreply, assign(socket, :show_video, true)}
-  def handle_event("close_video", _, socket), do: {:noreply, assign(socket, :show_video, false)}
 
   def handle_event("set_locale", %{"locale" => locale}, socket) do
     {:noreply, redirect(socket, to: ~p"/?lang=#{locale}")}

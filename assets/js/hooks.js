@@ -16,7 +16,7 @@ const HideOnScroll = {
   }
   
   // Carousel enhancement hooks
-  const CarouselHooks = {
+  const Carousel = {
     mounted() {
       this.currentSlide = 0
       this.autoPlay = true
@@ -111,9 +111,24 @@ const HideOnScroll = {
       }
     }
   }
+
+  const ScrollTop = {
+    mounted() {
+      this.handleScroll = () => window.scrollTo({ top: 0, behavior: "smooth" })
   
+      this.handleLV = () => this.handleScroll()
+      this.handleScroll()
+  
+      this.handleEvent("scroll_top", this.handleLV)
+    },
+    destroyed() {
+      this.removeEventListener?.("scroll_top", this.handleLV)
+    }
+  }
+
   export default {
-    Carousel: CarouselHooks,
-    HideOnScroll
+    Carousel,
+    HideOnScroll,
+    ScrollTop
   }
   
