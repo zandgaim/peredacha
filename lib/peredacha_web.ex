@@ -17,8 +17,6 @@ defmodule PeredachaWeb do
   those modules here.
   """
 
-  import Phoenix.LiveView, only: [assign: 3, put_session: 3]
-
   def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
 
   def router do

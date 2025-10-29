@@ -20,8 +20,8 @@ defmodule PeredachaWeb.Components.Header do
   def render(assigns) do
     ~H"""
     <header class="fixed top-0 inset-x-0 z-50 bg-transparent backdrop-blur-sm text-white transition-colors duration-300 supports-[backdrop-filter]:bg-neutral/60">
-      <div class="flex justify-between items-center py-4 px-4 md:px-6 w-full max-w-full">
-        <a href={@canonical_url} class="flex items-center space-x-2 group">
+      <div class="flex justify-between items-center py-2 px-4 md:px-6 w-full max-w-full">
+        <a href={~p"/"} class="flex items-center space-x-2 group">
           <img
             src={PeredachaWeb.Endpoint.static_path("/images/logo_5p_white.png")}
             alt="5peredacha Logo"
@@ -35,9 +35,10 @@ defmodule PeredachaWeb.Components.Header do
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-5">
           <nav class="flex items-center space-x-6 text-lg font-medium">
-            <a href="#home" class="hover:text-primary transition-colors">{gettext("Головна")}</a>
-            <a href="#about" class="hover:text-primary transition-colors">{gettext("Про нас")}</a>
-            <a href="#services" class="hover:text-primary transition-colors">{gettext("Послуги")}</a>
+            <a href={~p"/#home"} class="hover:text-primary transition-colors">{gettext("Головна")}</a>
+            <a href={~p"/#about"} class="hover:text-primary transition-colors">{gettext("Про нас")}</a>
+            <a href={~p"/#services"} class="hover:text-primary transition-colors">{gettext("Послуги")}</a>
+            <a href={~p"/blog"} class="hover:text-primary transition-colors">{gettext("Блог")}</a>
             <div class="dropdown dropdown-hover dropdown-end">
               <div tabindex="0" role="button" class="hover:text-primary cursor-pointer">
                 {gettext("Контакти")}
@@ -80,17 +81,29 @@ defmodule PeredachaWeb.Components.Header do
         <div class="md:hidden">
           <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />
               </svg>
             </div>
             <ul
               tabindex="0"
               class="menu menu-sm dropdown-content bg-neutral-800/95 backdrop-blur-md rounded-xl z-[1] mt-3 w-64 p-3 shadow-lg text-gray-200 text-lg"
             >
-              <li><a class="text-lg" href="#home">{gettext("Головна")}</a></li>
-              <li><a class="text-lg" href="#about">{gettext("Про нас")}</a></li>
-              <li><a class="text-lg" href="#services">{gettext("Послуги")}</a></li>
+              <li><a class="text-lg" href={~p"/#home"}>{gettext("Головна")}</a></li>
+              <li><a class="text-lg" href={~p"/#about"}>{gettext("Про нас")}</a></li>
+              <li><a class="text-lg" href={~p"/#services"}>{gettext("Послуги")}</a></li>
+              <li><a class="text-lg" href={~p"/blog"}>{gettext("Блог")}</a></li>
               <li tabindex="0">
                 <details>
                   <summary class="cursor-pointer transition-colors text-lg">
@@ -99,17 +112,26 @@ defmodule PeredachaWeb.Components.Header do
                   <div class="mt-2 ml-2 space-y-2">
                     <div>
                       <h3 class="font-bold text-white mb-1 text-base">{gettext("СТО")}</h3>
-                      <a href="tel:+380739161842" class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg">
+                      <a
+                        href="tel:+380739161842"
+                        class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg"
+                      >
                         <.phone_icon /> <span>+38 (073) 916-18-42</span>
                       </a>
-                      <a href="tel:+380969161842" class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg">
+                      <a
+                        href="tel:+380969161842"
+                        class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg"
+                      >
                         <.phone_icon /> <span>+38 (096) 916-18-42</span>
                       </a>
                     </div>
                     <div class="divider my-2 before:bg-white/10 after:bg-white/10"></div>
                     <div>
                       <h3 class="font-bold text-white mb-1 text-base">{gettext("Автомагазин")}</h3>
-                      <a href="tel:+380674161842" class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg">
+                      <a
+                        href="tel:+380674161842"
+                        class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg"
+                      >
                         <.phone_icon /> <span>+38 (067) 416-18-42</span>
                       </a>
                     </div>

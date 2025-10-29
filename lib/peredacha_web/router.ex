@@ -20,6 +20,7 @@ defmodule PeredachaWeb.Router do
     pipe_through :browser
 
     live "/", Pages.MainPage
+    live "/blog", Pages.BlogPage
   end
 
   # Other scopes may use custom stacks.
