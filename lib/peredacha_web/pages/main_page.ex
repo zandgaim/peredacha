@@ -6,6 +6,8 @@ defmodule PeredachaWeb.Pages.MainPage do
   alias PeredachaWeb.Components.ServicesComponent
   alias PeredachaWeb.Components.DescriptionComponent
   alias PeredachaWeb.Components.Header
+  alias PeredachaWeb.Components.ReviewsComponent
+  alias PeredachaWeb.Components.MapComponent
 
   def mount(_params, session, socket) do
     page_title = gettext("СТО ремонт КПП Renault. Ремонт МКПП Рено | 5peredacha")
@@ -16,6 +18,8 @@ defmodule PeredachaWeb.Pages.MainPage do
       )
 
     locale = session["locale"] || "uk"
+    reviews = Peredacha.GoogleReviews.fetch_reviews()
+
     Gettext.put_locale(PeredachaWeb.Gettext, locale)
 
     Process.send_after(self(), :auto_advance, 5500)
@@ -31,6 +35,7 @@ defmodule PeredachaWeb.Pages.MainPage do
       |> assign(:current_slide, 0)
       |> assign(:show_video, false)
       |> assign(:current_locale, locale)
+      |> assign(:reviews, reviews)
 
     {:ok, socket}
   end
@@ -105,30 +110,9 @@ defmodule PeredachaWeb.Pages.MainPage do
           </div>
         </section>
 
-        <section id="contacts" class="py-16">
-          <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-              <h2 class="text-3xl md:text-4xl font-bold mb-4">{gettext("Ми на карті")}</h2>
-              <p class="text-base-content/80 text-lg">
-                {gettext("Завітайте до нашого сервісу — зручно розташовані у Дрогобичі")}
-              </p>
-            </div>
+        <.live_component module={MapComponent} id="map_component" />
 
-            <div class="overflow-hidden rounded-2xl shadow-xl border border-base-content/10">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2599.785599426572!2d23.5112053!3d49.337277799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473a4fef51b86661%3A0xffa166c878faa48c!2zNSDQn9C10YDQtdC00LDRh9CwINCh0LXRgNCy0ZbRgSBSZW5hdWx0!5e0!3m2!1sru!2spl!4v1760475572653!5m2!1sru!2spl"
-                width="100%"
-                height="450"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                class="w-full h-[400px] md:h-[500px]"
-              >
-              </iframe>
-            </div>
-          </div>
-        </section>
+        <.live_component module={ReviewsComponent} id="reviews_component" reviews={@reviews} />
       </main>
       <.live_component module={Footer} id="footer" />
     </div>

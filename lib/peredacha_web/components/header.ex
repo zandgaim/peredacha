@@ -36,30 +36,44 @@ defmodule PeredachaWeb.Components.Header do
         <div class="hidden md:flex items-center gap-5">
           <nav class="flex items-center space-x-6 text-lg font-medium">
             <a href={~p"/#home"} class="hover:text-primary transition-colors">{gettext("Головна")}</a>
-            <a href={~p"/#about"} class="hover:text-primary transition-colors">{gettext("Про нас")}</a>
-            <a href={~p"/#services"} class="hover:text-primary transition-colors">{gettext("Послуги")}</a>
+            <a href={~p"/#about"} class="hover:text-primary transition-colors">
+              {gettext("Про нас")}
+            </a>
+            <a href={~p"/#services"} class="hover:text-primary transition-colors">
+              {gettext("Послуги")}
+            </a>
             <a href={~p"/blog"} class="hover:text-primary transition-colors">{gettext("Блог")}</a>
-            <div class="dropdown dropdown-hover dropdown-end">
+            <div id="contacts-dropdown" class="dropdown dropdown-end">
               <div tabindex="0" role="button" class="hover:text-primary cursor-pointer">
                 {gettext("Контакти")}
               </div>
               <div
+                id="contacts-dropdown-content"
                 tabindex="0"
                 class="dropdown-content bg-neutral-800/90 backdrop-blur-sm rounded-xl shadow-lg w-64 mt-4 p-4 z-[1] text-gray-200"
               >
                 <div>
                   <h3 class="font-bold text-white mb-2 text-base">{gettext("СТО")}</h3>
-                  <a href="tel:+380739161842" class="flex items-center space-x-2 hover:text-primary group/tel">
+                  <a
+                    href="tel:+380739161842"
+                    class="flex items-center space-x-2 hover:text-primary group/tel"
+                  >
                     <.phone_icon /> <span>+38 (073) 916-18-42</span>
                   </a>
-                  <a href="tel:+380969161842" class="flex items-center space-x-2 hover:text-primary group/tel">
+                  <a
+                    href="tel:+380969161842"
+                    class="flex items-center space-x-2 hover:text-primary group/tel"
+                  >
                     <.phone_icon /> <span>+38 (096) 916-18-42</span>
                   </a>
                 </div>
                 <div class="divider my-2 before:bg-white/10 after:bg-white/10"></div>
                 <div>
                   <h3 class="font-bold text-white mb-2 text-base">{gettext("Автомагазин")}</h3>
-                  <a href="tel:+380674161842" class="flex items-center space-x-2 hover:text-primary group/tel">
+                  <a
+                    href="tel:+380674161842"
+                    class="flex items-center space-x-2 hover:text-primary group/tel"
+                  >
                     <.phone_icon /> <span>+38 (067) 416-18-42</span>
                   </a>
                 </div>
