@@ -61,8 +61,8 @@ if config_env() == :prod do
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :peredacha,
-    :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY"),
-    :google_places_api_key, System.get_env("GOOGLE_PLACES_API_KEY")
+    dns_cluster_query: System.get_env("DNS_CLUSTER_QUERY"),
+    google_places_api_key: System.get_env("GOOGLE_PLACES_API_KEY")
 
   config :peredacha, PeredachaWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],
