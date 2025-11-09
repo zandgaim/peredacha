@@ -18,5 +18,3 @@ config :logger, level: :info
 
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.
-
-config :peredacha, :google_places_api_key, System.get_env("GOOGLE_PLACES_API_KEY")
