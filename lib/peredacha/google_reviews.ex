@@ -7,7 +7,7 @@ defmodule Peredacha.GoogleReviews do
 
   @endpoint "https://maps.googleapis.com/maps/api/place/details/json"
   @place_id "ChIJYWa4Ue9POkcRjKT6eMhmof8"
-  @api_key System.get_env("GOOGLE_PLACES_API_KEY")
+  @api_key Application.get_env(:peredacha, :google_places_api_key)
 
   def fetch_reviews do
     if is_nil(@api_key) do
@@ -57,4 +57,8 @@ defmodule Peredacha.GoogleReviews do
   end
 
   defp parse_reviews(_), do: []
+
+  defp api_key do
+    Application.get_env(:peredacha, :google_places_api_key)
+  end
 end

@@ -34,11 +34,11 @@ defmodule Peredacha.Application do
   end
 
   defp maybe_add_repo(children) do
-    if System.get_env("DISABLE_DB") == "true" do
-      IO.puts(">>> DISABLE_DB=true — not starting Repo")
-      children
-    else
-      [Peredacha.Repo | children]
-    end
+    # if System.get_env("DISABLE_DB") == "true" do
+    IO.puts(">>> DISABLE_DB=true — not starting Repo")
+    children
+    # else
+    #   [Peredacha.Repo | children]
+    # end
   end
 end
