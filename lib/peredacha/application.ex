@@ -5,6 +5,8 @@ defmodule Peredacha.Application do
 
   use Application
 
+  require Logger
+
   @impl true
   def start(_type, _args) do
     children =
@@ -34,11 +36,11 @@ defmodule Peredacha.Application do
   end
 
   defp maybe_add_repo(children) do
-    # if System.get_env("DISABLE_DB") == "true" do
-    IO.puts(">>> DISABLE_DB=true — not starting Repo")
-    children
-    # else
-    #   [Peredacha.Repo | children]
-    # end
+    if System.get_env("DISABLE_DB") == "true" do
+      Logger.info(">>> DISABLE_DB=true — not starting Repo")
+      children
+    else
+      [Peredacha.Repo | children]
+    end
   end
 end
