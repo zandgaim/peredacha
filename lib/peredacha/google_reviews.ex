@@ -7,15 +7,16 @@ defmodule Peredacha.GoogleReviews do
 
   @endpoint "https://maps.googleapis.com/maps/api/place/details/json"
   @place_id "ChIJYWa4Ue9POkcRjKT6eMhmof8"
-  @api_key Application.get_env(:peredacha, :google_places_api_key)
 
   def fetch_reviews do
-    if is_nil(@api_key) do
+    api_key = api_key()
+
+    if is_nil(api_key) do
       Logger.warning("⚠️ Missing GOOGLE_PLACES_API_KEY in environment")
       []
     else
       url =
-        "#{@endpoint}?place_id=#{@place_id}&fields=name,rating,reviews&language=uk&reviews_sort=newest&key=#{@api_key}"
+        "#{@endpoint}?place_id=#{@place_id}&fields=name,rating,reviews&language=uk&reviews_sort=newest&key=#{api_key}"
 
       case Req.get(url, receive_timeout: 10_000) do
         {:ok, %Req.Response{status: 200, body: body}} ->

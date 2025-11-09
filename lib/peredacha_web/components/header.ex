@@ -5,7 +5,6 @@ defmodule PeredachaWeb.Components.Header do
   alias PeredachaWeb.Components.SocialIcons
   alias PeredachaWeb.Gettext
 
-  @impl true
   def update(assigns, socket) do
     locale = assigns[:current_locale] || Gettext.get_locale() || "uk"
 
