@@ -3,10 +3,10 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
 
   def render(assigns) do
     ~H"""
-    <div id="about" class="bg-base-100">
-      <div class="container mx-auto px-4 py-16 md:py-24 space-y-24">
+    <div id="about" class="bg-base-100 w-full">
+      <div class="mx-auto space-y-24">
         <%!-- About Us Section using Hero Component --%>
-        <div class="hero min-h-[50vh] bg-base-200 rounded-2xl p-4 sm:p-8">
+        <div class="hero min-h-[50vh] bg-base-200 p-4 sm:p-8">
           <div class="hero-content flex-col lg:flex-row-reverse gap-12">
             <img
               src={PeredachaWeb.Endpoint.static_path("/images/steps/step_1.png")}
@@ -106,44 +106,46 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
           </p>
         </div>
         <%!-- On Desktop: Show Cards. On Mobile: Show Steps --%> <%!-- Hide cards on mobile --%>
-        <div class="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          <div class="card bg-base-200 shadow-xl text-center">
-            <div class="card-body items-center">
-              <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">1</div>
+        <div class="container mx-auto px-4">
+          <div class="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div class="card bg-base-200 shadow-xl text-center">
+              <div class="card-body items-center">
+                <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">1</div>
 
-              <h3 class="card-title text-2xl font-bold">{gettext("Дзвінок або заявка")}</h3>
+                <h3 class="card-title text-2xl font-bold">{gettext("Дзвінок або заявка")}</h3>
 
-              <p>
-                {gettext("Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.")}
-              </p>
+                <p>
+                  {gettext("Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.")}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="card bg-base-200 shadow-xl text-center">
-            <div class="card-body items-center">
-              <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">2</div>
+            <div class="card bg-base-200 shadow-xl text-center">
+              <div class="card-body items-center">
+                <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">2</div>
 
-              <h3 class="card-title text-2xl font-bold">{gettext("Перевірка та ремонт")}</h3>
+                <h3 class="card-title text-2xl font-bold">{gettext("Перевірка та ремонт")}</h3>
 
-              <p>
-                {gettext(
-                  "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
-                )}
-              </p>
+                <p>
+                  {gettext(
+                    "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
+                  )}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div class="card bg-base-200 shadow-xl text-center">
-            <div class="card-body items-center">
-              <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">3</div>
+            <div class="card bg-base-200 shadow-xl text-center">
+              <div class="card-body items-center">
+                <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">3</div>
 
-              <h3 class="card-title text-2xl font-bold">{gettext("Тестування та гарантія")}</h3>
+                <h3 class="card-title text-2xl font-bold">{gettext("Тестування та гарантія")}</h3>
 
-              <p>
-                {gettext(
-                  "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
-                )}
-              </p>
+                <p>
+                  {gettext(
+                    "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
+                  )}
+                </p>
+              </div>
             </div>
           </div>
         </div>

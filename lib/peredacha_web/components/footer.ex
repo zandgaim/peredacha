@@ -5,7 +5,7 @@ defmodule PeredachaWeb.Components.Footer do
 
   def render(assigns) do
     ~H"""
-    <footer class="bg-yellow-500 footer footer-horizontal footer-center bg-primary text-primary-content p-10">
+    <footer class="footer footer-horizontal footer-center bg-neutral text-neutral-content p-10">
       <aside>
         <img
           src={PeredachaWeb.Endpoint.static_path("/images/logo_5p_white.png")}

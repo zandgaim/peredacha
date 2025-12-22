@@ -7,10 +7,10 @@ defmodule PeredachaWeb.Components.ServicesComponent do
 
   def render(assigns) do
     ~H"""
-    <div id="services" class="container scroll-mt-24 mx-auto px-4">
+    <div id="services" class="scroll-mt-24 mx-auto">
       <div class="relative -mx-4 md:mx-0">
-        <div class="hero min-h-[50vh] bg-base-200 rounded-none md:rounded-2xl p-6 sm:p-10">
-          <div class="w-full">
+        <div class="hero bg-base-200 rounded-none p-6 sm:p-10">
+          <div class="container mx-auto px-4">
             <!-- Заголовок блоку -->
             <div class="mx-auto mb-12 max-w-3xl text-center px-2 md:px-0">
               <h2 class="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
