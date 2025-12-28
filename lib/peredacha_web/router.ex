@@ -21,6 +21,7 @@ defmodule PeredachaWeb.Router do
 
     live "/", Pages.MainPage
     live "/blog", Pages.BlogPage
+    live "/blog/:slug", Pages.BlogArticlePage
   end
 
   # Other scopes may use custom stacks.
