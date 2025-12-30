@@ -1,9 +1,9 @@
 defmodule PeredachaWeb.Components.Footer do
-  use PeredachaWeb, :live_component
+  use PeredachaWeb, :html
 
   alias PeredachaWeb.Components.SocialIcons
 
-  def render(assigns) do
+  def draw(assigns) do
     ~H"""
     <footer class="footer footer-horizontal footer-center bg-neutral text-neutral-content p-10">
       <aside>
@@ -23,7 +23,7 @@ defmodule PeredachaWeb.Components.Footer do
 
         <p>{gettext("Copyright © %{year}. Всі права захищено.", year: DateTime.utc_now().year)}</p>
       </aside>
-      <.live_component module={SocialIcons} id="social-icons-footer" />
+      <SocialIcons.draw />
     </footer>
     """
   end

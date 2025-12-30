@@ -26,7 +26,7 @@ defmodule PeredachaWeb.Pages.BlogArticlePage do
   def render(assigns) do
     ~H"""
     <div class="bg-base-200 min-h-screen py-10">
-      <div class="container mx-auto px-4 max-w-4xl">
+      <div class="container mx-auto px-4 pt-16 max-w-4xl">
         <div class="text-sm breadcrumbs mb-6 text-base-content/70">
           <ul>
             <li><.link navigate={~p"/"}>{gettext("Головна")}</.link></li>
@@ -93,12 +93,18 @@ defmodule PeredachaWeb.Pages.BlogArticlePage do
     """
   end
 
+  @impl true
+  def handle_event("set_locale", %{"locale" => locale}, socket) do
+    slug = socket.assigns.article.slug
+    {:noreply, redirect(socket, to: ~p"/blog/#{slug}?lang=#{locale}")}
+  end
+
   defp render_markdown(markdown) when is_binary(markdown) do
     Earmark.as_html!(markdown)
   end
 
   defp find_article(slug) do
-    Peredacha.BlogArticles.get_blog_articles()
+    BlogArticles.get_blog_articles()
     |> Enum.find(&(&1.slug == slug))
   end
 end

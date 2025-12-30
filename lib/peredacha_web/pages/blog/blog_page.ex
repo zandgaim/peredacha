@@ -2,7 +2,7 @@ defmodule PeredachaWeb.Pages.BlogPage do
   use PeredachaWeb, :live_view
 
   alias Peredacha.BlogArticles
-  alias PeredachaWeb.Components.{Footer, Header, PaginationComponent}
+  alias PeredachaWeb.Components.PaginationComponent
 
   @articles_per_page 6
 
@@ -51,8 +51,6 @@ defmodule PeredachaWeb.Pages.BlogPage do
   def render(assigns) do
     ~H"""
     <div class="relative min-h-screen flex flex-col font-sans bg-base-200/50">
-      <.live_component module={Header} id="header" current_locale={@current_locale} />
-
       <main class="flex-1 pt-16">
         <div class="bg-base-100 py-10 border-b border-base-200">
           <div class="container mx-auto px-4">
@@ -145,8 +143,6 @@ defmodule PeredachaWeb.Pages.BlogPage do
           </div>
         </section>
       </main>
-
-      <.live_component module={Footer} id="footer" class="fade-in-up" />
     </div>
     """
   end

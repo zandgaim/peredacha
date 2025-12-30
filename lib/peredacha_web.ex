@@ -50,7 +50,8 @@ defmodule PeredachaWeb do
 
   def live_view do
     quote do
-      use Phoenix.LiveView
+      use Phoenix.LiveView,
+        layout: {PeredachaWeb.Layouts, :app}
 
       on_mount {PeredachaWeb, :set_locale}
       unquote(html_helpers())

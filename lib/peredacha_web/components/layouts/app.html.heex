@@ -1,0 +1,13 @@
+<main>
+    <PeredachaWeb.Components.Header.draw 
+        theme={assigns[:theme]} 
+        locale={assigns[:current_locale]} 
+    />
+
+    <div class="mx-auto max-w-full">
+        <.flash_group flash={@flash} />
+        {@inner_content}
+    </div>
+
+    <PeredachaWeb.Components.Footer.draw />
+</main>
