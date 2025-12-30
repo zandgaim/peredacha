@@ -29,6 +29,7 @@ defmodule PeredachaWeb.Components.Header do
             <a href={~p"/#services"} class="hover:text-primary transition-colors">
               {gettext("Послуги")}
             </a>
+            <a href={~p"/#gallery"} class="hover:text-primary transition-colors">{gettext("Галерея")}</a>
             <a href={~p"/blog"} class="hover:text-primary transition-colors">{gettext("Блог")}</a>
             <div id="contacts-dropdown" class="dropdown dropdown-end">
               <div tabindex="0" role="button" class="hover:text-primary cursor-pointer">
@@ -104,6 +105,7 @@ defmodule PeredachaWeb.Components.Header do
               <li><a class="text-lg" href={~p"/#home"}>{gettext("Головна")}</a></li>
               <li><a class="text-lg" href={~p"/#about"}>{gettext("Про нас")}</a></li>
               <li><a class="text-lg" href={~p"/#services"}>{gettext("Послуги")}</a></li>
+              <li><a class="text-lg" href={~p"/#gallery"}>{gettext("Галерея")}</a></li>
               <li><a class="text-lg" href={~p"/blog"}>{gettext("Блог")}</a></li>
               <li tabindex="0">
                 <details>

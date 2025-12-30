@@ -4,7 +4,7 @@ defmodule PeredachaWeb.Pages.BlogPage do
   alias Peredacha.BlogArticles
   alias PeredachaWeb.Components.PaginationComponent
 
-  @articles_per_page 6
+  @articles_per_page 9
 
   def mount(_params, session, socket) do
     locale = session["locale"] || "uk"
