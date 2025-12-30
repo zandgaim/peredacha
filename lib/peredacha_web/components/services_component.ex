@@ -16,21 +16,22 @@ defmodule PeredachaWeb.Components.ServicesComponent do
               <h2 class="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
                 {gettext("Наші Послуги")}
               </h2>
+              
               <p class="text-lg text-base-content/80">
                 {gettext(
                   "Ми пропонуємо повний спектр професійних послуг з ремонту та обслуговування механічних коробок передач."
                 )}
               </p>
             </div>
-
-            <!-- Desktop Grid -->
+            
+    <!-- Desktop Grid -->
             <div class="hidden md:grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
               <%= for service <- @services do %>
                 <.service_card service={service} />
               <% end %>
             </div>
-
-            <!-- Mobile Carousel -->
+            
+    <!-- Mobile Carousel -->
             <div class="md:hidden mt-6">
               <div class="w-screen relative left-1/2 right-1/2 -mx-[50vw] flex items-stretch snap-x snap-mandatory gap-5 overflow-x-auto pb-6 px-5 scrollbar-none scroll-smooth">
                 <%= for service <- @services do %>
@@ -62,11 +63,13 @@ defmodule PeredachaWeb.Components.ServicesComponent do
           class="h-56 w-full object-cover"
         />
       </div>
+      
       <div class="flex flex-grow flex-col justify-between p-6">
         <div>
           <h3 class="mb-3 text-xl font-bold text-base-content">
             {@service.title}
           </h3>
+          
           <p class="leading-relaxed text-base-content/70">
             {@service.description}
           </p>

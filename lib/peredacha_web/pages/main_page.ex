@@ -6,6 +6,7 @@ defmodule PeredachaWeb.Pages.MainPage do
   alias PeredachaWeb.Components.DescriptionComponent
   alias PeredachaWeb.Components.ReviewsComponent
   alias PeredachaWeb.Components.MapComponent
+  alias PeredachaWeb.Components.GalleryComponent
 
   def mount(_params, session, socket) do
     page_title = gettext("СТО ремонт КПП Renault. Ремонт МКПП Рено | 5peredacha")
@@ -17,6 +18,7 @@ defmodule PeredachaWeb.Pages.MainPage do
 
     locale = session["locale"] || "uk"
     reviews = Peredacha.GoogleReviews.fetch_reviews()
+    sections = PeredachaWeb.Pages.GallerySections.sections()
 
     Gettext.put_locale(PeredachaWeb.Gettext, locale)
 
@@ -34,6 +36,7 @@ defmodule PeredachaWeb.Pages.MainPage do
       |> assign(:show_video, false)
       |> assign(:current_locale, locale)
       |> assign(:reviews, reviews)
+      |> assign(:sections, sections)
 
     {:ok, socket}
   end
@@ -48,67 +51,10 @@ defmodule PeredachaWeb.Pages.MainPage do
           slides={@slides}
           current_slide={@current_slide}
         />
-
         <.live_component module={DescriptionComponent} id="description_component" steps={@steps_data} />
-
         <.live_component module={ServicesComponent} id="services_component" />
-
-        <section class="py-16 bg-base-200">
-          <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">
-              {gettext("Моделі КПП які ми ремонтуємо")}
-            </h2>
-
-            <%!-- Desktop: Responsive Grid (wraps automatically) --%>
-            <div class="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 text-lg text-center">
-              <%= for model <- @kpp_models do %>
-                <div class="bg-base-100 rounded-lg shadow p-3">{model}</div>
-              <% end %>
-            </div>
-
-            <%!-- Mobile: Horizontal Scroll --%>
-            <div class="md:hidden">
-              <div class="flex overflow-x-auto space-x-4 pb-4">
-                <%= for model <- @kpp_models do %>
-                  <div class="flex-shrink-0 bg-base-100 rounded-lg shadow p-3 px-6 text-lg">
-                    {model}
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="py-16 bg-neutral text-neutral-content">
-          <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-10 text-center">{gettext("Чому обирають нас?")}</h2>
-
-            <%!-- Desktop: 3-Column Grid --%>
-            <div class="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
-              <%= for reason <- @why_us_reasons do %>
-                <div class="bg-base-100/10 rounded-xl shadow p-8 text-center md:text-left">
-                  <h3 class="text-xl font-semibold mb-2 text-primary">{reason.title}</h3>
-                  <p>{reason.description}</p>
-                </div>
-              <% end %>
-            </div>
-
-            <%!-- Mobile: Horizontal Scroll with Snap --%>
-            <div class="md:hidden">
-              <div class="flex overflow-x-auto space-x-4 pb-4 snap-x snap-mandatory">
-                <%= for reason <- @why_us_reasons do %>
-                  <div class="w-4/5 flex-shrink-0 bg-base-100/10 rounded-xl shadow p-8 snap-center">
-                    <h3 class="text-xl font-semibold mb-2 text-primary">{reason.title}</h3>
-                    <p>{reason.description}</p>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </section>
-
+        <.live_component module={GalleryComponent} id="gallery-component" sections={@sections} />
         <.live_component module={MapComponent} id="map_component" />
-
         <.live_component module={ReviewsComponent} id="reviews_component" reviews={@reviews} />
       </main>
     </div>

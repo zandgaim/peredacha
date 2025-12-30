@@ -5,17 +5,18 @@ defmodule PeredachaWeb.Components.ReviewsComponent do
     ~H"""
     <div id="reviews" class="scroll-mt-24 mx-auto">
       <div class="relative -mx-4 md:mx-0">
-        <div class="hero bg-base-200 rounded-none p-6 sm:p-10">
+        <div class="hero bg-base rounded-none p-6 sm:p-10">
           <div class="container mx-auto px-4">
             <div class="mx-auto mb-12 max-w-3xl text-center px-2 md:px-0">
               <h2 class="mb-4 text-4xl font-bold tracking-tight md:text-4xl">
                 Відгуки клієнтів
               </h2>
+              
               <p class="text-lg text-base-content/80">
                 Дякуємо за ваші відгуки! Ви допомагаєте нам стати кращими ❤️
               </p>
             </div>
-
+            
             <%= if @reviews == [] do %>
               <p class="text-gray-500 text-center">Відгуки тимчасово недоступні.</p>
             <% else %>
@@ -63,7 +64,7 @@ defmodule PeredachaWeb.Components.ReviewsComponent do
             <span class="font-semibold text-base-content">{@review.author}</span>
             <span class="text-sm text-base-content/60">{@review.time}</span>
           </div>
-
+          
           <div class="mb-2 flex items-center">
             <%= for i <- 1..5 do %>
               <%= if i <= @review.rating do %>
@@ -74,7 +75,7 @@ defmodule PeredachaWeb.Components.ReviewsComponent do
             <% end %>
           </div>
         </div>
-
+        
         <p class="leading-relaxed text-base-content/70 text-sm mt-2 line-clamp-6">
           {@review.text}
         </p>
