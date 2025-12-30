@@ -1,6 +1,8 @@
 defmodule PeredachaWeb.Router do
   use PeredachaWeb, :router
 
+  alias PeredachaWeb.Live.RestoreTheme
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,8 +10,10 @@ defmodule PeredachaWeb.Router do
     plug :put_root_layout, html: {PeredachaWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_cookies
 
     plug PeredachaWeb.Plugs.SetLocale
+    plug PeredachaWeb.Plugs.ThemePlug
   end
 
   pipeline :api do
@@ -19,9 +23,11 @@ defmodule PeredachaWeb.Router do
   scope "/", PeredachaWeb do
     pipe_through :browser
 
-    live "/", Pages.MainPage
-    live "/blog", Pages.BlogPage
-    live "/blog/:slug", Pages.BlogArticlePage
+    live_session :default, on_mount: RestoreTheme do
+      live "/", Pages.MainPage
+      live "/blog", Pages.BlogPage
+      live "/blog/:slug", Pages.BlogArticlePage
+    end
   end
 
   # Other scopes may use custom stacks.

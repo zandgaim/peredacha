@@ -1,22 +1,10 @@
 defmodule PeredachaWeb.Components.Header do
-  use PeredachaWeb, :live_component
+  use PeredachaWeb, :html
   import PeredachaWeb.ThemeController
 
   alias PeredachaWeb.Components.SocialIcons
-  alias PeredachaWeb.Gettext
 
-  def update(assigns, socket) do
-    locale = assigns[:current_locale] || Gettext.get_locale() || "uk"
-
-    socket =
-      socket
-      |> assign(assigns)
-      |> assign(:locale, locale)
-
-    {:ok, socket}
-  end
-
-  def render(assigns) do
+  def draw(assigns) do
     ~H"""
     <header class="fixed top-0 inset-x-0 z-50 bg-transparent backdrop-blur-sm text-white transition-colors duration-300 supports-[backdrop-filter]:bg-neutral/60">
       <div class="flex justify-between items-center py-2 px-4 md:px-6 w-full max-w-full">
@@ -83,10 +71,10 @@ defmodule PeredachaWeb.Components.Header do
           <div class="w-px h-6 bg-white/20"></div>
 
           <div class="flex items-center gap-4">
-            <.theme_controller />
+            <.theme_controller theme={@theme} />
             <.lang_switcher locale={@locale} />
             <div class="w-px h-6 bg-white/20"></div>
-            <.live_component module={SocialIcons} id="social-icons-header" />
+            <SocialIcons.draw id="social-header" />
           </div>
         </div>
 
@@ -159,14 +147,14 @@ defmodule PeredachaWeb.Components.Header do
                   {gettext("Ми в соцмережах")}
                 </span>
                 <div class="flex gap-2">
-                  <.live_component module={SocialIcons} id="social-icons-mobile" />
+                  <SocialIcons.draw/>
                 </div>
               </li>
 
               <div class="divider my-1 before:bg-white/10 after:bg-white/10"></div>
 
               <li class="flex flex-row justify-between items-center gap-4 py-2 px-1">
-                <.theme_controller />
+                <.theme_controller theme={@theme} />
                 <.lang_switcher locale={@locale} />
               </li>
             </ul>
@@ -177,7 +165,6 @@ defmodule PeredachaWeb.Components.Header do
     """
   end
 
-  # NEW: Nicer, more compact language switcher
   defp lang_switcher(assigns) do
     ~H"""
     <div class="flex items-center p-1 space-x-1 rounded-full bg-black/20 text-sm">

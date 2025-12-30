@@ -1,11 +1,9 @@
 defmodule PeredachaWeb.Pages.MainPage do
   use PeredachaWeb, :live_view
 
-  alias PeredachaWeb.Components.Footer
   alias PeredachaWeb.Components.CarouselComponent
   alias PeredachaWeb.Components.ServicesComponent
   alias PeredachaWeb.Components.DescriptionComponent
-  alias PeredachaWeb.Components.Header
   alias PeredachaWeb.Components.ReviewsComponent
   alias PeredachaWeb.Components.MapComponent
 
@@ -43,7 +41,6 @@ defmodule PeredachaWeb.Pages.MainPage do
   def render(assigns) do
     ~H"""
     <div class="relative min-h-screen flex flex-col">
-      <.live_component module={Header} id="header" current_locale={@current_locale} />
       <main class="flex-1">
         <.live_component
           module={CarouselComponent}
@@ -114,7 +111,6 @@ defmodule PeredachaWeb.Pages.MainPage do
 
         <.live_component module={ReviewsComponent} id="reviews_component" reviews={@reviews} />
       </main>
-      <.live_component module={Footer} id="footer" />
     </div>
     """
   end

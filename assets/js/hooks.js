@@ -1,4 +1,26 @@
-// assets/js/hooks.js
+const Theme = {
+  mounted() {
+    this.sync();
+  },
+  updated() {
+    this.sync();
+  },
+  sync() {
+    // 1. Get the current truth from the HTML tag
+    const currentTheme = document.documentElement.dataset.theme;
+    
+    // 2. Force the checkbox to match
+    this.el.checked = (currentTheme === "dark");
+
+    // 3. Remove old listener to avoid doubles and re-bind
+    this.el.onchange = (e) => {
+      const newTheme = e.target.checked ? "dark" : "light";
+      
+      // Tell the root script to update everything
+      window.dispatchEvent(new CustomEvent("phx:set-theme", { detail: newTheme }));
+    };
+  }
+}
 
 // Hide arrow on scroll
 const HideOnScroll = {
@@ -129,6 +151,7 @@ const HideOnScroll = {
   export default {
     Carousel,
     HideOnScroll,
-    ScrollTop
+    ScrollTop,
+    Theme
   }
   
