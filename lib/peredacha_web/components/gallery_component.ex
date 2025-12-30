@@ -23,10 +23,10 @@ defmodule PeredachaWeb.Components.GalleryComponent do
         <div class="container mx-auto">
           <div class="gallery-header">
             <h2>Галерея</h2>
-            
+
             <p>Результати роботи СТО: професійний підхід у кожному зображенні.</p>
           </div>
-          
+
           <div class="gallery-grid">
             <%= for {section, index} <- Enum.with_index(@sections) do %>
               <div
@@ -37,20 +37,20 @@ defmodule PeredachaWeb.Components.GalleryComponent do
               >
                 <img src={PeredachaWeb.Endpoint.static_path(section.cover)} alt={section.title} />
                 <div class="gallery-overlay"></div>
-                
+
                 <div class="gallery-content">
                   <h3>{section.title}</h3>
                 </div>
               </div>
             <% end %>
           </div>
-          
+
           <%= if @selected_section do %>
             <div class="gallery-modal">
               <button phx-click="close_gallery" phx-target={@myself} class="gallery-close">
                 ✕
               </button>
-              
+
               <div class="gallery-modal-inner">
                 <div class="gallery-image-wrapper">
                   <% current_img = Enum.at(@selected_section.images, @current_image_index) %>
@@ -61,7 +61,7 @@ defmodule PeredachaWeb.Components.GalleryComponent do
                   <button phx-click="prev_image" phx-target={@myself} class="gallery-arrow left">
                     ‹
                   </button>
-                  
+
                   <button phx-click="next_image" phx-target={@myself} class="gallery-arrow right">
                     ›
                   </button>
@@ -77,6 +77,7 @@ defmodule PeredachaWeb.Components.GalleryComponent do
 
   # EVENTS
 
+  @impl true
   def handle_event("open_gallery", %{"id" => id}, socket) do
     section = Enum.find(socket.assigns.sections, &(&1.id == id))
     {:noreply, assign(socket, selected_section: section, current_image_index: 0)}
