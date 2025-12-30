@@ -18,23 +18,28 @@ defmodule PeredachaWeb.Components.Header do
             {gettext("5 Передача")}
           </span>
         </a>
-
-        <!-- Desktop Menu -->
+        
+    <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-5">
           <nav class="flex items-center space-x-6 text-lg font-medium">
             <a href={~p"/#home"} class="hover:text-primary transition-colors">{gettext("Головна")}</a>
             <a href={~p"/#about"} class="hover:text-primary transition-colors">
               {gettext("Про нас")}
             </a>
+            
             <a href={~p"/#services"} class="hover:text-primary transition-colors">
               {gettext("Послуги")}
             </a>
-            <a href={~p"/#gallery"} class="hover:text-primary transition-colors">{gettext("Галерея")}</a>
+            
+            <a href={~p"/#gallery"} class="hover:text-primary transition-colors">
+              {gettext("Галерея")}
+            </a>
             <a href={~p"/blog"} class="hover:text-primary transition-colors">{gettext("Блог")}</a>
             <div id="contacts-dropdown" class="dropdown dropdown-end">
               <div tabindex="0" role="button" class="hover:text-primary cursor-pointer">
                 {gettext("Контакти")}
               </div>
+              
               <div
                 id="contacts-dropdown-content"
                 tabindex="0"
@@ -42,12 +47,14 @@ defmodule PeredachaWeb.Components.Header do
               >
                 <div>
                   <h3 class="font-bold text-white mb-2 text-base">{gettext("СТО")}</h3>
+                  
                   <a
                     href="tel:+380739161842"
                     class="flex items-center space-x-2 hover:text-primary group/tel"
                   >
                     <.phone_icon /> <span>+38 (073) 916-18-42</span>
                   </a>
+                  
                   <a
                     href="tel:+380969161842"
                     class="flex items-center space-x-2 hover:text-primary group/tel"
@@ -55,9 +62,12 @@ defmodule PeredachaWeb.Components.Header do
                     <.phone_icon /> <span>+38 (096) 916-18-42</span>
                   </a>
                 </div>
+                
                 <div class="divider my-2 before:bg-white/10 after:bg-white/10"></div>
+                
                 <div>
                   <h3 class="font-bold text-white mb-2 text-base">{gettext("Автомагазин")}</h3>
+                  
                   <a
                     href="tel:+380674161842"
                     class="flex items-center space-x-2 hover:text-primary group/tel"
@@ -68,18 +78,17 @@ defmodule PeredachaWeb.Components.Header do
               </div>
             </div>
           </nav>
-
+          
           <div class="w-px h-6 bg-white/20"></div>
-
+          
           <div class="flex items-center gap-4">
-            <.theme_controller theme={@theme} />
-            <.lang_switcher locale={@locale} />
+            <.theme_controller theme={@theme} /> <.lang_switcher locale={@locale} />
             <div class="w-px h-6 bg-white/20"></div>
-            <SocialIcons.draw id="social-header" />
+             <SocialIcons.draw id="social-header" />
           </div>
         </div>
-
-        <!-- Mobile Menu -->
+        
+    <!-- Mobile Menu -->
         <div class="md:hidden">
           <div class="dropdown dropdown-end">
             <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -98,29 +107,38 @@ defmodule PeredachaWeb.Components.Header do
                 />
               </svg>
             </div>
+            
             <ul
               tabindex="0"
               class="menu menu-sm dropdown-content bg-neutral-800/95 backdrop-blur-md rounded-xl z-[1] mt-3 w-64 p-3 shadow-lg text-gray-200 text-lg"
             >
               <li><a class="text-lg" href={~p"/#home"}>{gettext("Головна")}</a></li>
+              
               <li><a class="text-lg" href={~p"/#about"}>{gettext("Про нас")}</a></li>
+              
               <li><a class="text-lg" href={~p"/#services"}>{gettext("Послуги")}</a></li>
+              
               <li><a class="text-lg" href={~p"/#gallery"}>{gettext("Галерея")}</a></li>
+              
               <li><a class="text-lg" href={~p"/blog"}>{gettext("Блог")}</a></li>
+              
               <li tabindex="0">
                 <details>
                   <summary class="cursor-pointer transition-colors text-lg">
                     {gettext("Контакти")}
                   </summary>
+                  
                   <div class="mt-2 ml-2 space-y-2">
                     <div>
                       <h3 class="font-bold text-white mb-1 text-base">{gettext("СТО")}</h3>
+                      
                       <a
                         href="tel:+380739161842"
                         class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg"
                       >
                         <.phone_icon /> <span>+38 (073) 916-18-42</span>
                       </a>
+                      
                       <a
                         href="tel:+380969161842"
                         class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg"
@@ -128,9 +146,12 @@ defmodule PeredachaWeb.Components.Header do
                         <.phone_icon /> <span>+38 (096) 916-18-42</span>
                       </a>
                     </div>
+                    
                     <div class="divider my-2 before:bg-white/10 after:bg-white/10"></div>
+                    
                     <div>
                       <h3 class="font-bold text-white mb-1 text-base">{gettext("Автомагазин")}</h3>
+                      
                       <a
                         href="tel:+380674161842"
                         class="flex items-center space-x-2 hover:text-primary transition-colors group/tel text-lg"
@@ -141,23 +162,23 @@ defmodule PeredachaWeb.Components.Header do
                   </div>
                 </details>
               </li>
-
+              
               <div class="divider my-1 before:bg-white/10 after:bg-white/10"></div>
-
+              
               <li class="flex flex-col items-center py-1">
                 <span class="text-xs uppercase tracking-wider text-gray-400 mb-1">
                   {gettext("Ми в соцмережах")}
                 </span>
+                
                 <div class="flex gap-2">
-                  <SocialIcons.draw/>
+                  <SocialIcons.draw />
                 </div>
               </li>
-
+              
               <div class="divider my-1 before:bg-white/10 after:bg-white/10"></div>
-
+              
               <li class="flex flex-row justify-between items-center gap-4 py-2 px-1">
-                <.theme_controller theme={@theme} />
-                <.lang_switcher locale={@locale} />
+                <.theme_controller theme={@theme} /> <.lang_switcher locale={@locale} />
               </li>
             </ul>
           </div>
@@ -182,6 +203,7 @@ defmodule PeredachaWeb.Components.Header do
       >
         UA
       </button>
+      
       <button
         phx-click="set_locale"
         phx-value-locale="en"

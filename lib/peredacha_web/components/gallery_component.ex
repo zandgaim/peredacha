@@ -18,19 +18,15 @@ defmodule PeredachaWeb.Components.GalleryComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div
-      id="gallery"
-      class="gallery-root"
-      phx-window-keydown="keydown"
-      phx-target={@myself}
-    >
+    <div id="gallery" class="gallery-root" phx-window-keydown="keydown" phx-target={@myself}>
       <div class="gallery-hero">
         <div class="container mx-auto">
           <div class="gallery-header">
             <h2>Галерея</h2>
+            
             <p>Результати роботи СТО: професійний підхід у кожному зображенні.</p>
           </div>
-
+          
           <div class="gallery-grid">
             <%= for {section, index} <- Enum.with_index(@sections) do %>
               <div
@@ -39,52 +35,34 @@ defmodule PeredachaWeb.Components.GalleryComponent do
                 phx-value-id={section.id}
                 class={"gallery-card " <> grid_classes(index)}
               >
-                <img
-                  src={PeredachaWeb.Endpoint.static_path(section.cover)}
-                  alt={section.title}
-                />
-
+                <img src={PeredachaWeb.Endpoint.static_path(section.cover)} alt={section.title} />
                 <div class="gallery-overlay"></div>
-
+                
                 <div class="gallery-content">
-                  <h3><%= section.title %></h3>
+                  <h3>{section.title}</h3>
                 </div>
               </div>
             <% end %>
           </div>
-
+          
           <%= if @selected_section do %>
             <div class="gallery-modal">
-              <button
-                phx-click="close_gallery"
-                phx-target={@myself}
-                class="gallery-close"
-              >
+              <button phx-click="close_gallery" phx-target={@myself} class="gallery-close">
                 ✕
               </button>
-
+              
               <div class="gallery-modal-inner">
                 <div class="gallery-image-wrapper">
                   <% current_img = Enum.at(@selected_section.images, @current_image_index) %>
-
                   <img
                     src={PeredachaWeb.Endpoint.static_path(current_img)}
                     class="gallery-modal-image"
                   />
-
-                  <button
-                    phx-click="prev_image"
-                    phx-target={@myself}
-                    class="gallery-arrow left"
-                  >
+                  <button phx-click="prev_image" phx-target={@myself} class="gallery-arrow left">
                     ‹
                   </button>
-
-                  <button
-                    phx-click="next_image"
-                    phx-target={@myself}
-                    class="gallery-arrow right"
-                  >
+                  
+                  <button phx-click="next_image" phx-target={@myself} class="gallery-arrow right">
                     ›
                   </button>
                 </div>
@@ -115,7 +93,9 @@ defmodule PeredachaWeb.Components.GalleryComponent do
 
   def handle_event("prev_image", _, socket) do
     %{selected_section: s, current_image_index: i} = socket.assigns
-    {:noreply, assign(socket, current_image_index: if(i == 0, do: length(s.images) - 1, else: i - 1))}
+
+    {:noreply,
+     assign(socket, current_image_index: if(i == 0, do: length(s.images) - 1, else: i - 1))}
   end
 
   def handle_event("keydown", %{"key" => key}, socket) do

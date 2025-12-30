@@ -51,15 +51,10 @@ defmodule PeredachaWeb.Pages.MainPage do
           slides={@slides}
           current_slide={@current_slide}
         />
-
         <.live_component module={DescriptionComponent} id="description_component" steps={@steps_data} />
-
         <.live_component module={ServicesComponent} id="services_component" />
-
         <.live_component module={GalleryComponent} id="gallery-component" sections={@sections} />
-
         <.live_component module={MapComponent} id="map_component" />
-
         <.live_component module={ReviewsComponent} id="reviews_component" reviews={@reviews} />
       </main>
     </div>
