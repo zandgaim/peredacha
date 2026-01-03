@@ -16,7 +16,7 @@ defmodule PeredachaWeb.Components.MapComponent do
 
         <div class="grid grid-cols-1 lg:grid-cols-3 bg-base-100 rounded-3xl overflow-hidden shadow-2xl border border-base-content/5">
           <%!-- Info Sidebar --%>
-          <div class="p-8 md:p-12 flex flex-col justify-between bg-base-100 order-2 lg:order-1">
+          <div class="p-8 md:p-12 flex flex-col justify-between bg-neutral text-neutral-content order-2 lg:order-1">
             <div class="space-y-8">
               <div>
                 <h3 class="text-2xl font-bold mb-6 flex items-center gap-2">
@@ -49,8 +49,8 @@ defmodule PeredachaWeb.Components.MapComponent do
                       </svg>
                     </div>
                     <div>
-                      <p class="font-bold text-lg">{gettext("Адреса")}</p>
-                      <p class="text-base-content/70">
+                      <p class="font-bold text-neutral-content text-lg">{gettext("Адреса")}</p>
+                      <p class="text-neutral-content">
                         {gettext("вул. Стрийська, 123")}<br />
                         {gettext("м. Дрогобич, 82100")}
                       </p>
@@ -76,7 +76,7 @@ defmodule PeredachaWeb.Components.MapComponent do
                     </div>
                     <div>
                       <p class="font-bold text-lg">{gettext("Графік роботи")}</p>
-                      <div class="text-base-content/70 text-sm">
+                      <div class="text-neutral-content/70 text-sm">
                         <div class="flex justify-between gap-4">
                           <span>{gettext("Пн-Пт:")}</span> <span>09:00 - 18:00</span>
                         </div>
