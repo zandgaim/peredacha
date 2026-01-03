@@ -95,7 +95,7 @@ defmodule PeredachaWeb.Components.MapComponent do
 
             <div class="mt-10 lg:mt-0">
               <a
-                href="https://www.google.com/maps/dir/?api=1&destination=вул+Стрийська+123+Дрогобич"
+                href="https://maps.app.goo.gl/XacC6kW1rw2vrp7s6"
                 target="_blank"
                 class="btn btn-primary btn-lg w-full shadow-lg shadow-primary/20 normal-case flex items-center justify-center gap-3"
               >
