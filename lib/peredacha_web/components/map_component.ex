@@ -3,7 +3,7 @@ defmodule PeredachaWeb.Components.MapComponent do
 
   def render(assigns) do
     ~H"""
-    <section id="contacts" class="py-20 bg-base-200/50">
+    <section id="contacts" class="py-10 bg-base-200">
       <div class="container mx-auto px-4 max-w-6xl">
         <div class="text-center mb-12">
           <h2 class="text-4xl md:text-5xl font-extrabold mt-2 mb-4 tracking-tight">
