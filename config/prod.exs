@@ -18,3 +18,7 @@ config :logger, level: :info
 
 # Runtime production configuration, including reading
 # of environment variables, is done on config/runtime.exs.
+
+config :peredacha, Peredacha.CoreApiClient,
+  api_url: "http://localhost:4000/api/graphql",
+  tenant: "peredacha"

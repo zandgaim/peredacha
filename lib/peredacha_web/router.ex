@@ -2,6 +2,8 @@ defmodule PeredachaWeb.Router do
   use PeredachaWeb, :router
 
   alias PeredachaWeb.Live.RestoreTheme
+  alias PeredachaWeb.Hooks.RestoreUser
+  alias PeredachaWeb.Hooks.RequireLogin
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -12,6 +14,7 @@ defmodule PeredachaWeb.Router do
     plug :put_secure_browser_headers
     plug :fetch_cookies
 
+    plug PeredachaWeb.Plugs.FetchUser
     plug PeredachaWeb.Plugs.SetLocale
     plug PeredachaWeb.Plugs.ThemePlug
   end
@@ -23,17 +26,39 @@ defmodule PeredachaWeb.Router do
   scope "/", PeredachaWeb do
     pipe_through :browser
 
-    live_session :default, on_mount: RestoreTheme do
+    # --- Auth HTTP Routes ---
+    post "/auth/login_success", AuthController, :login_success
+    get "/auth/logout", AuthController, :logout
+    get "/auth/refresh", AuthController, :refresh
+
+    # --- ГРУПА: ПУБЛІЧНІ СТОРІНКИ ---
+    # RestoreUser гарантує наявність @current_user у сокеті
+    live_session :default, on_mount: [RestoreTheme, RestoreUser] do
       live "/", Pages.MainPage
+    end
+
+    # --- ГРУПА: ТІЛЬКИ ДЛЯ ГОСТЕЙ ---
+    live_session :guest,
+      on_mount: [
+        RestoreTheme,
+        RestoreUser,
+        {RequireLogin, :redirect_if_authenticated}
+      ] do
+      live "/auth", Pages.AuthPage
+    end
+
+    # --- ГРУПА: ЗАХИЩЕНІ СТОРІНКИ ---
+    live_session :authenticated,
+      on_mount: [
+        RestoreTheme,
+        RestoreUser,
+        {RequireLogin, :ensure_authenticated}
+      ] do
       live "/blog", Pages.BlogPage
       live "/blog/:slug", Pages.BlogArticlePage
+      # live "/profile", Pages.ProfilePage
     end
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", PeredachaWeb do
-  #   pipe_through :api
-  # end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:peredacha, :dev_routes) do
