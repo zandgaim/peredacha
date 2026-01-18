@@ -7,7 +7,6 @@ defmodule PeredachaWeb.Hooks.RequireLogin do
   use PeredachaWeb, :verified_routes
 
   def on_mount(:ensure_authenticated, _params, session, socket) do
-
     case session["access_token"] do
       token when is_binary(token) ->
         case CoreApiClient.get_user_by_token(token) do

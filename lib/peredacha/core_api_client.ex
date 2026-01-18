@@ -140,7 +140,7 @@ defmodule Peredacha.CoreApiClient do
   defp parse_errors(_), do: "Невідома помилка"
 
   defp get_tenant() do
-    Application.get_env(:peredacha, __MODULE__)[:tenant] || "default"
+    Application.get_env(:peredacha, __MODULE__)[:tenant]
   end
 
   defp get_api_url() do

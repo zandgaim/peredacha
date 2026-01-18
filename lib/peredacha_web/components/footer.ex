@@ -20,10 +20,10 @@ defmodule PeredachaWeb.Components.Footer do
         <p class="font-bold">
           {gettext("5 Передача")} <br /> {gettext("СТО по ремонту КПП Renault")}
         </p>
-
+        
         <p>{gettext("Copyright © %{year}. Всі права захищено.", year: DateTime.utc_now().year)}</p>
       </aside>
-      <SocialIcons.draw />
+       <SocialIcons.draw />
     </footer>
     """
   end
