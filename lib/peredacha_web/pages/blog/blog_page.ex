@@ -60,18 +60,18 @@ defmodule PeredachaWeb.Pages.BlogPage do
                 <span class="mx-2">/</span>
                 <span class="text-base-content/80">{gettext("Блог")}</span>
               </div>
-              
+
               <h1 class="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-base-content">
                 {gettext("Наш Блог")}
               </h1>
-              
+
               <p class="text-base text-base-content/60 max-w-xl">
                 {gettext("Корисні статті та поради від команди СТО 5 Передача")}
               </p>
             </div>
           </div>
         </div>
-        
+
         <section class="py-12">
           <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -88,22 +88,22 @@ defmodule PeredachaWeb.Pages.BlogPage do
                       loading="lazy"
                     />
                   </figure>
-                  
+
                   <div class="p-6 flex flex-col flex-grow">
                     <div class="flex items-center gap-2 mb-3">
                       <span class="text-xs font-bold text-primary uppercase tracking-wider">
                         {article.date}
                       </span>
                     </div>
-                    
+
                     <h2 class="text-xl font-bold mb-3 leading-snug transition-colors line-clamp-2">
                       {article.title}
                     </h2>
-                    
+
                     <p class="text-sm text-base-content/70 line-clamp-3 mb-6 leading-relaxed flex-grow">
                       {article.description}
                     </p>
-                    
+
                     <div class="mt-auto pt-2">
                       <.link
                         navigate={~p"/blog/#{article.slug}"}
@@ -132,7 +132,7 @@ defmodule PeredachaWeb.Pages.BlogPage do
                 </div>
               <% end %>
             </div>
-            
+
             <div class="mt-16 flex justify-center">
               <.live_component
                 module={PaginationComponent}

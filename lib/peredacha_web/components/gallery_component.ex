@@ -25,7 +25,7 @@ defmodule PeredachaWeb.Components.GalleryComponent do
             <h2 class="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
               Галерея
             </h2>
-            
+
             <p class="text-base text-base-content/80">
               Результати роботи СТО: професійний підхід у кожному зображенні.
             </p>
@@ -69,17 +69,17 @@ defmodule PeredachaWeb.Components.GalleryComponent do
                   opacity-80 md:opacity-60
                 ">
                 </div>
-                
+
                 <div class="absolute inset-0 p-3 md:p-8 flex flex-col justify-end">
                   <div class="md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
                     <span class="hidden md:inline-block px-3 py-1 mb-3 text-xs font-bold uppercase bg-primary text-primary-content rounded-full">
                       {section.subtitle}
                     </span>
-                    
+
                     <h2 class="text-base md:text-3xl font-bold text-white leading-tight">
                       {section.title}
                     </h2>
-                    
+
                     <p class="hidden md:block text-sm text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                       {section.description}
                     </p>
@@ -99,7 +99,7 @@ defmodule PeredachaWeb.Components.GalleryComponent do
               >
                 ✕
               </button>
-              
+
               <div class="w-full max-w-6xl h-full flex flex-col items-center justify-center p-4 md:p-10">
                 <div class="relative w-full h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
                   <% current_img = Enum.at(@selected_section.images, @current_image_index) %>
@@ -119,7 +119,7 @@ defmodule PeredachaWeb.Components.GalleryComponent do
                   >
                     ‹
                   </button>
-                  
+
                   <button
                     phx-click="next_image"
                     phx-target={@myself}

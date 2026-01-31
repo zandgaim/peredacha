@@ -14,7 +14,6 @@ defmodule PeredachaWeb.Router do
     plug :put_secure_browser_headers
     plug :fetch_cookies
 
-    plug PeredachaWeb.Plugs.FetchUser
     plug PeredachaWeb.Plugs.SetLocale
     plug PeredachaWeb.Plugs.ThemePlug
   end
@@ -57,6 +56,16 @@ defmodule PeredachaWeb.Router do
       live "/blog", Pages.BlogPage
       live "/blog/:slug", Pages.BlogArticlePage
       # live "/profile", Pages.ProfilePage
+    end
+
+    live_session :shop,
+      on_mount: [
+        RestoreTheme,
+        RestoreUser,
+        {RequireLogin, :ensure_authenticated}
+      ],
+      layout: {PeredachaWeb.Layouts, :shop} do
+      live "/shop", Pages.ShopMainPage
     end
   end
 

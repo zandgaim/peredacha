@@ -21,4 +21,4 @@ config :logger, level: :info
 
 config :peredacha, Peredacha.CoreApiClient,
   api_url: "http://localhost:4000/api/graphql",
-  tenant: "peredacha"
+  store_slug: "peredacha"

@@ -2,8 +2,8 @@ defmodule Peredacha.CoreApiClient do
   require Logger
 
   @login_query """
-    mutation Login($email: String!, $password: String!, $tenant: String!) {
-      login(email: $email, password: $password, tenant: $tenant) {
+    mutation Login($email: String!, $password: String!, $store_slug: String!) {
+      login(email: $email, password: $password, store_slug: $store_slug) {
         access_token
         refresh_token
         user { email }
@@ -18,8 +18,8 @@ defmodule Peredacha.CoreApiClient do
   """
 
   @register_query """
-    mutation Register($email: String!, $password: String!, $tenant: String!) {
-      register(email: $email, password: $password, tenant: $tenant) {
+    mutation Register($email: String!, $password: String!, $store_slug: String!) {
+      register(email: $email, password: $password, store_slug: $store_slug) {
         access_token
         refresh_token
         user { email }
@@ -48,8 +48,8 @@ defmodule Peredacha.CoreApiClient do
   # --- Public API ---
   def login(email, password) do
     Logger.info("api_called: login #{email}")
-    tenant = get_tenant()
-    variables = %{email: email, password: password, tenant: tenant}
+    store_slug = get_store_slug()
+    variables = %{email: email, password: password, store_slug: store_slug}
 
     @login_query
     |> post_graphql(variables)
@@ -67,8 +67,8 @@ defmodule Peredacha.CoreApiClient do
 
   def register(email, password) do
     Logger.info("api_called: register #{email}")
-    tenant = get_tenant()
-    variables = %{email: email, password: password, tenant: tenant}
+    store_slug = get_store_slug()
+    variables = %{email: email, password: password, store_slug: store_slug}
 
     @register_query
     |> post_graphql(variables)
@@ -139,8 +139,8 @@ defmodule Peredacha.CoreApiClient do
 
   defp parse_errors(_), do: "Невідома помилка"
 
-  defp get_tenant() do
-    Application.get_env(:peredacha, __MODULE__)[:tenant]
+  defp get_store_slug() do
+    Application.get_env(:peredacha, __MODULE__)[:store_slug]
   end
 
   defp get_api_url() do

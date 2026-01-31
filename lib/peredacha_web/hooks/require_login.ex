@@ -1,30 +1,36 @@
 defmodule PeredachaWeb.Hooks.RequireLogin do
   import Phoenix.LiveView
-  import Phoenix.Component
-
-  alias Peredacha.CoreApiClient
-
   use PeredachaWeb, :verified_routes
 
   def on_mount(:ensure_authenticated, _params, session, socket) do
-    case session["access_token"] do
-      token when is_binary(token) ->
-        case CoreApiClient.get_user_by_token(token) do
-          {:ok, user} -> {:cont, assign(socket, :current_user, user)}
-          {:error, _reason} -> {:halt, redirect_to_refresh(socket)}
+    cond do
+      not connected?(socket) ->
+        if session["access_token"] do
+          {:cont, socket}
+        else
+          {:halt, redirect_to_auth(socket)}
         end
 
-      _ ->
+      socket.assigns[:current_user] == :token_expired ->
+        {:halt, redirect_to_refresh(socket)}
+
+      socket.assigns[:current_user] ->
+        {:cont, socket}
+
+      true ->
         {:halt, redirect_to_auth(socket)}
     end
   end
 
   def on_mount(:redirect_if_authenticated, _params, session, socket) do
-    case session["access_token"] do
-      token when is_binary(token) ->
+    cond do
+      not connected?(socket) ->
+        {:cont, socket}
+
+      is_map(socket.assigns[:current_user]) ->
         {:halt, redirect(socket, to: "/")}
 
-      _ ->
+      true ->
         {:cont, socket}
     end
   end

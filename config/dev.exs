@@ -88,4 +88,4 @@ config :swoosh, :api_client, false
 
 config :peredacha, Peredacha.CoreApiClient,
   api_url: "http://localhost:4000/api/graphql",
-  tenant: "peredacha"
+  store_slug: "peredacha"

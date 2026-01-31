@@ -1,0 +1,18 @@
+<div class="min-h-screen flex flex-col bg-base-100">
+  <PeredachaWeb.Components.ShopHeader.draw
+    locale={@current_locale}
+    theme={@theme}
+    current_user={@current_user}
+  />
+
+  <main class="flex-grow pt-24">{@inner_content}</main>
+
+  <footer class="bg-neutral-900 text-white py-12 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 opacity-80">
+      <div>
+        <h3 class="text-xl font-bold mb-4">5 Передача</h3>
+        <p>Якісні запчастини для МКПП з доставкою по всій Україні.</p>
+      </div>
+    </div>
+  </footer>
+</div>

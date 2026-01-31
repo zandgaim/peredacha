@@ -17,13 +17,13 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
               <h1 class="text-4xl md:text-5xl font-bold">
                 {gettext("«5 Передача» — експерти з ремонту КПП Renault")}
               </h1>
-              
+
               <p class="py-6 text-lg">
                 {gettext(
                   "Ми спеціалізуємося на ремонті механізованих та роботизованих коробок передач для комерційних автомобілів Renault. Забезпечуємо точний підхід, сучасне обладнання та швидке виконання робіт. Більшість ремонтів ми виконуємо менш ніж за половину робочого дня."
                 )}
               </p>
-              
+
               <div class="space-y-4 max-w-md mx-auto lg:mx-0">
                 <div class="flex items-start p-3 bg-base rounded-lg">
                   <svg
@@ -40,14 +40,14 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                       d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  
+
                   <span>
                     <strong>{gettext("Гарантія 3–6 місяців")}</strong> {gettext(
                       "на всі роботи та комплектуючі."
                     )}
                   </span>
                 </div>
-                
+
                 <div class="flex items-start p-3 bg-base-100/80 rounded-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -63,14 +63,14 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                       d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
                     />
                   </svg>
-                  
+
                   <span>
                     <strong>{gettext("15+ років досвіду")}</strong> {gettext(
                       "у щоденному ремонті КПП Renault."
                     )}
                   </span>
                 </div>
-                
+
                 <div class="flex items-start p-3 bg-base-100/80 rounded-lg">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                       d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  
+
                   <span>
                     <strong>{gettext("Швидке виконання")}</strong> {gettext(
                       "— ремонт до одного робочого дня за наявності деталей."
@@ -97,25 +97,25 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             </div>
           </div>
         </div>
-         <%!-- How It Works Section using Cards and Steps --%>
+        <%!-- How It Works Section using Cards and Steps --%>
         <div class="text-center">
           <h2 class="text-4xl md:text-5xl font-bold mb-4">{gettext("Як це працює?")}</h2>
-          
+
           <p class="text-lg max-w-2xl mx-auto text-base-content/80">
             {gettext(
               "Наш процес простий, прозорий і розроблений, щоб повернути вас на дорогу якомога швидше."
             )}
           </p>
         </div>
-         <%!-- On Desktop: Show Cards. On Mobile: Show Steps --%> <%!-- Hide cards on mobile --%>
+        <%!-- On Desktop: Show Cards. On Mobile: Show Steps --%> <%!-- Hide cards on mobile --%>
         <div class="container mx-auto px-4">
           <div class="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <div class="card bg-base-200 shadow-xl text-center">
               <div class="card-body items-center">
                 <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">1</div>
-                
+
                 <h3 class="card-title text-2xl font-bold">{gettext("Дзвінок або заявка")}</h3>
-                
+
                 <p>
                   {gettext(
                     "Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами."
@@ -123,13 +123,13 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                 </p>
               </div>
             </div>
-            
+
             <div class="card bg-base-200 shadow-xl text-center">
               <div class="card-body items-center">
                 <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">2</div>
-                
+
                 <h3 class="card-title text-2xl font-bold">{gettext("Перевірка та ремонт")}</h3>
-                
+
                 <p>
                   {gettext(
                     "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
@@ -137,13 +137,13 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
                 </p>
               </div>
             </div>
-            
+
             <div class="card bg-base-200 shadow-xl text-center">
               <div class="card-body items-center">
                 <div class="badge badge-primary badge-lg text-2xl font-bold p-4 mb-4">3</div>
-                
+
                 <h3 class="card-title text-2xl font-bold">{gettext("Тестування та гарантія")}</h3>
-                
+
                 <p>
                   {gettext(
                     "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."
@@ -153,22 +153,22 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
             </div>
           </div>
         </div>
-         <%!-- Hide steps on desktop --%>
+        <%!-- Hide steps on desktop --%>
         <ul class="steps steps-vertical md:hidden">
           <li class="step step-primary">
             <div class="text-left p-4">
               <h3 class="font-bold text-lg">{gettext("Дзвінок або заявка")}</h3>
-              
+
               <p class="text-sm text-base-content/70">
                 {gettext("Ви телефонуєте нам або залишаєте заявку на сайті, і ми зв'язуємося з Вами.")}
               </p>
             </div>
           </li>
-          
+
           <li class="step step-primary">
             <div class="text-left p-4">
               <h3 class="font-bold text-lg">{gettext("Перевірка та ремонт")}</h3>
-              
+
               <p class="text-sm text-base-content/70">
                 {gettext(
                   "Визначаємо стан КПП, пропонуємо варіанти ремонту та якісно виконуємо роботи."
@@ -176,11 +176,11 @@ defmodule PeredachaWeb.Components.DescriptionComponent do
               </p>
             </div>
           </li>
-          
+
           <li class="step">
             <div class="text-left p-4">
               <h3 class="font-bold text-lg">{gettext("Тестування та гарантія")}</h3>
-              
+
               <p class="text-sm text-base-content/70">
                 {gettext(
                   "Після ремонту КПП проходить контрольну перевірку, і ви отримуєте авто у справному стані."

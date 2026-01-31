@@ -7,7 +7,7 @@
     <.live_title default="Peredacha" suffix=" · Phoenix Framework">
       {assigns[:page_title]}
     </.live_title>
-    
+
     <script>
       (function () {
         const getTheme = () => {
@@ -30,17 +30,17 @@
         });
       })()
     </script>
-     <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
+    <link phx-track-static rel="stylesheet" href={~p"/assets/css/app.css"} />
     <script defer phx-track-static type="text/javascript" src={~p"/assets/js/app.js"}>
     </script>
-     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   </head>
-  
+
   <body class="antialiased bg-base-100 text-base-content">
     {@inner_content}
     <script src="https://unpkg.com/aos@next/dist/aos.js">
     </script>
-    
+
     <script>
       AOS.init({duration: 700, once: true});
     </script>

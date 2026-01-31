@@ -19,7 +19,7 @@ defmodule PeredachaWeb.Components.PaginationComponent do
       >
         «
       </button>
-      
+
       <%= for page <- @pages do %>
         <button
           type="button"
@@ -30,7 +30,7 @@ defmodule PeredachaWeb.Components.PaginationComponent do
           {page}
         </button>
       <% end %>
-      
+
       <button
         type="button"
         phx-click="change_page"
