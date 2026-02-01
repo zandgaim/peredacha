@@ -95,12 +95,27 @@ defmodule Peredacha.CoreApiClient do
 
   # --- Private Helpers ---
   defp post_graphql(query, variables, token \\ nil) do
-    headers = if token, do: [authorization: "Bearer #{token}"], else: []
+    store_headers = [
+      {"x-store-slug", get_store_slug()},
+      {"x-store-secret", get_store_secret()}
+    ]
+
+    user_headers =
+      if token do
+        [{"authorization", "Bearer #{token}"}]
+      else
+        []
+      end
+
+    # 3. Об'єднуємо всі заголовки
+    all_headers = store_headers ++ user_headers
+
     api_url = get_api_url()
 
+    # Req автоматично додає content-type: application/json, якщо передано option json: ...
     Req.post(api_url,
       json: %{query: query, variables: variables},
-      headers: headers
+      headers: all_headers
     )
   end
 
@@ -121,6 +136,11 @@ defmodule Peredacha.CoreApiClient do
     end
   end
 
+  defp handle_response({:ok, %{status: 403, body: body}}, _op) do
+     Logger.error("store Auth Failed: #{inspect(body)}")
+     {:error, "Помилка конфігурації магазину (Unauthorized store)"}
+  end
+
   defp handle_response({:ok, %{status: status, body: body}}, _op) do
     Logger.error("HTTP Error #{status}: #{inspect(body)}")
     {:error, "Сервер повернув помилку #{status}"}
@@ -139,11 +159,9 @@ defmodule Peredacha.CoreApiClient do
 
   defp parse_errors(_), do: "Невідома помилка"
 
-  defp get_store_slug() do
-    Application.get_env(:peredacha, __MODULE__)[:store_slug]
-  end
+  defp get_store_slug(), do: config()[:store_slug]
+  defp get_api_url(), do: config()[:api_url] || "http://localhost:4000/api/graphql"
+  defp get_store_secret(), do: config()[:store_secret] || raise "store Secret not configured!"
 
-  defp get_api_url() do
-    Application.get_env(:peredacha, __MODULE__)[:api_url] || "http://localhost:4000/api/graphql"
-  end
+  defp config(), do: Application.get_env(:peredacha, __MODULE__)
 end
