@@ -13,7 +13,7 @@ defmodule PeredachaWeb.Hooks.RestoreUser do
 
   defp fetch_user(token) when is_binary(token) do
     case CoreApiClient.get_user_by_token(token) do
-      {:ok, user} -> user
+      {:ok, user} when not is_nil(user) -> user
       {:error, _} -> :token_expired
     end
   end

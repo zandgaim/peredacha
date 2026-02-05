@@ -17,6 +17,7 @@ defmodule Peredacha.Application do
         # Start a worker by calling: Peredacha.Worker.start_link(arg)
         # {Peredacha.Worker, arg},
         # Start to serve requests, typically the last entry
+        Peredacha.TokenStorage,
         PeredachaWeb.Endpoint
       ]
       |> maybe_add_repo()

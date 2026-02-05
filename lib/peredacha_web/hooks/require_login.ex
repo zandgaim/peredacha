@@ -22,7 +22,7 @@ defmodule PeredachaWeb.Hooks.RequireLogin do
     end
   end
 
-  def on_mount(:redirect_if_authenticated, _params, session, socket) do
+  def on_mount(:redirect_if_authenticated, _params, _session, socket) do
     cond do
       not connected?(socket) ->
         {:cont, socket}

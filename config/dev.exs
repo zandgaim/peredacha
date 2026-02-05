@@ -86,6 +86,7 @@ config :phoenix_live_view,
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
 
-config :peredacha, Peredacha.CoreApiClient,
-  api_url: "http://localhost:4000/api/graphql",
+config :peredacha,
+  api_url_base: "http://localhost:4000/api",
+  store_secret: "super_secret_key_store_peredacha",
   store_slug: "peredacha"
